@@ -1,21 +1,21 @@
-.research-container {
+.projects-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
-    color: rgb(9, 8, 8);
-    margin-left: 250px;  /* Adjust for sidebar */
+    color: rgb(21, 19, 19);
+    margin-left: 250px; /* Adjust for sidebar */
     width: calc(100% - 250px);
   }
   
-  .research-container h1 {
+  .projects-container h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
   }
   
-  .research-container p {
+  .projects-container p {
     font-size: 1.2rem;
     max-width: 800px;
   }

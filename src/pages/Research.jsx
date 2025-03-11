@@ -3,7 +3,8 @@ import "./Research.css";
 const Research = () => {
   return (
     <div className="research-container">
-      <h1>Research at BirdLab</h1>
+      <h1>Our Research</h1>
+      <p>BirdLab is working on advanced robotics and AI projects.</p>
     </div>
   );
 };
