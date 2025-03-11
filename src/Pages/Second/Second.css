@@ -1,5 +1,5 @@
-.home-background {
-  background-image: url("../assets/blbg.png");  /* Path to the background image */
+.second-background {
+  background-image: url("../../assets/blbg.png");  /* Path to the background image */
   background-size: cover;  /* Cover the whole page */
   background-position: center;  /* Center the image */
   background-repeat: no-repeat;  /* Do not repeat */
@@ -11,7 +11,7 @@
   justify-content: center;
 }
 
-.home-content {
+.second-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,4 +22,3 @@
     width: calc(100% - 250px);
     text-decoration-color: black;
   }
-  

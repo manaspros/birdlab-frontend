@@ -1,0 +1,25 @@
+.fifth-background {
+    background-image: url("../../assets/blbg.png");  /* Path to the background image */
+    background-size: cover;  /* Cover the whole page */
+    background-position: center;  /* Center the image */
+    background-repeat: no-repeat;  /* Do not repeat */
+    width: 100vw;  /* Full viewport width */
+    height: 100vh;  /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .fifth-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: rgb(19, 17, 17);
+      margin-left: 250px;
+      width: calc(100% - 250px);
+      text-decoration-color: black;
+    }
+    

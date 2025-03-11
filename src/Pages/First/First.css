@@ -1,0 +1,66 @@
+.first-container {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full screen height */
+  text-align: center;
+  color: rgb(209, 186, 200); /* Light text color for contrast */
+  font-family:fantasy;
+  font: 15px;
+  width: 750px; /* Set a fixed width (adjust as needed) */
+  height: 120px;
+}
+
+/* Main Heading Styling */
+.first-title {
+  font-size: 45px;
+  font-weight:lighter;
+  margin-bottom: 20px;
+  color: rgb(209, 186, 200);
+}
+
+/* Horizontal Navigation Bar for Subsections */
+.first-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height:max-content;
+  max-width: 1000px;
+  padding: 30px;
+  background-color: rgba(84, 132, 171, 0.748); /* Light transparent background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 250px 10px 250px 0px;
+}
+
+/* Each Subsection Box */
+.first-box {
+  border-radius: 75px 5px 50px 0px;
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally */
+  text-align: center; /* Ensures text is centered */
+  padding: 20px 10px;
+  font:small;
+  font-weight: 250;
+  background-color: rgba(160, 192, 211, 0.604); /* Ensures correct transparency */
+  box-shadow: 0 4px 6px rgba(105, 16, 99, 0.6);
+  text-decoration: none;
+  color: black;
+  transition: all 0.3s ease;
+  width: 100px; /* Set a fixed width (adjust as needed) */
+  height: 60px; /* Set a fixed height (adjust as needed) */
+}
+
+.first-box:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.first-box:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}

@@ -1,47 +1,84 @@
 /* Center the main container */
 .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-  }
-  
-  /* Styling for the main title */
-  .main-title {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  /* Styling for the navigation block */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Styling for the main title */
+.main-title {
+  font-size: 3vw; /* Responsive font size */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Styling for the navigation block */
+.sections-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  gap: 15px;
+  width: 90%;
+  max-width: 800px;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual section styles */
+.section-box {
+  padding: 12px 20px;
+  font-size: 1.2rem; /* Responsive font size */
+  font-weight: 500;
+  background-color: rgb(96, 28, 144);
+  border-radius: 5px;
+  text-decoration:none;
+  color: black;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  flex: 1; /* Allow items to expand */
+  text-align: center;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+/* Hover effect */
+.section-box:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .sections-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 80%;
-    max-width: 800px;
-    padding: 15px;
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      flex-direction: column; /* Stack items vertically */
+      width: 100%;
   }
-  
-  /* Individual section styles */
+
   .section-box {
-    padding: 12px 20px;
-    font-size: 18px;
-    font-weight: 500;
-    background-color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    color: black;
-    transition: all 0.3s ease;
-    cursor: pointer;
+      width: 75%; /* Adjust width for smaller screens */
+      min-width: 20%;
   }
-  
-  .section-box:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 480px) {
+  .main-title {
+      font-size: 5vw; /* Adjust title size for small devices */
   }
-  
+
+  .sections-container {
+      padding: 10px;
+      gap: 10px;
+  }
+
+  .section-box {
+      font-size: 1rem; /* Reduce font size for very small screens */
+      padding: 5px;
+  }
+}

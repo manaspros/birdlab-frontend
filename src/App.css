@@ -3,6 +3,7 @@
   background-size: cover;  /* Cover the whole page */
   background-position: center;  /* Center the image */
   background-repeat: no-repeat;  /* Do not repeat */
+  background-color: rgb(218, 143, 220);
   width: 100vw;  /* Full viewport width */
   height: 100vh;  /* Full viewport height */
   display: flex;
@@ -26,8 +27,8 @@
   position: relative;
   z-index: 2; /* Ensures content is above the overlay */
   text-align: center;
-  color: rgb(229, 219, 219); /* Adjust text color for visibility */
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(223, 209, 222); /* Adjust text color for visibility */
+  font-family:fantasy;
 }
 
 /* Centering the Main Heading */
@@ -51,26 +52,29 @@
 .sections-container {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   width: 100%;
   max-width: 800px;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: #779fbca9;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(108, 17, 95, 0.3);
 }
 
 /* Each Section Box */
 .section-box {
-  padding: 15px 25px;
+  padding: 15px 5px;
   font-size: 18px;
   font-weight: 500;
-  background-color: white;
+  background-color: rgba(160, 192, 211, 0.604);
   border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(105, 16, 99, 0.6);
   text-decoration: none;
   color: black;
   transition: all 0.3s ease;
   text-align: center;
+  width: 80px; /* Set a fixed width (adjust as needed) */
+  height: 60px;
 }
 
 .section-box:hover {
