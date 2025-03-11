@@ -43,9 +43,9 @@
 
 /* Heading Styling */
 .main-title {
-  font-size: 32px;
+  font-size: 45px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 /* Horizontal Navigation Bar */
@@ -55,22 +55,22 @@
   gap: 20px;
   width: 100%;
   max-width: 800px;
-  padding: 20px;
+  padding: 40px 35px;
   background-color: #779fbca9;
-  border-radius: 10px;
+  border-radius: 100px 0px 100px 0px;
   box-shadow: 0 4px 6px rgba(108, 17, 95, 0.3);
 }
 
 /* Each Section Box */
 .section-box {
-  padding: 15px 5px;
-  font-size: 18px;
+  padding: 20px 8px;
+  font-size:medium;
   font-weight: 500;
   background-color: rgba(160, 192, 211, 0.604);
-  border-radius: 5px;
+  border-radius: 50px 0px 50px 0px;
   box-shadow: 0 4px 6px rgba(105, 16, 99, 0.6);
   text-decoration: none;
-  color: black;
+  color: rgb(15, 32, 79);
   transition: all 0.3s ease;
   text-align: center;
   width: 80px; /* Set a fixed width (adjust as needed) */

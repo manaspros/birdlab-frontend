@@ -1,14 +1,19 @@
-import "./Fourth.css";
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Fourth.css"; // Updated CSS import
 
-const First = () => {
+const Fourth = () => {
   return (
-    <div className="fourth-background">
     <div className="fourth-container">
-      <h1>Tele-Robotics and Haptics</h1>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime vitae rem, itaque debitis adipisci architecto consequuntur cum ab tempore laudantium dicta earum consequatur placeat aut, quis a quia beatae. Illo!</p>
-    </div>
+      <h1 className="fourth-title">Tele-Robotics and Haptics</h1>
+      <p>Select a topic to explore:</p>
+      <div className="fourth-list">
+        <Link to="/fourth/fourth1" className="fourth-box">Master Device</Link>
+        <Link to="/fourth/fourth2" className="fourth-box">Slave Device</Link>
+        <Link to="/fourth/fourth3" className="fourth-box">Haptic Feedback</Link>
+      </div>
     </div>
   );
 };
 
-export default First;
+export default Fourth;

@@ -1,24 +1,61 @@
-.third-background {
-  background-image: url("../../assets/blbg.png");  /* Path to the background image */
-  background-size: cover;  /* Cover the whole page */
-  background-position: center;  /* Center the image */
-  background-repeat: no-repeat;  /* Do not repeat */
-  width: 100vw;  /* Full viewport width */
-  height: 100vh;  /* Full viewport height */
+.third-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh; /* Full screen height */
+  text-align: center;
+  color: rgb(209, 186, 200); /* Light text color for contrast */
+  font-family: fantasy;
+  font-size: medium;
+  width: 750px; /* Set a fixed width (adjust as needed) */
+  height: 120px;
 }
 
-.third-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    color: rgb(19, 17, 17);
-    margin-left: 250px;
-    width: calc(100% - 250px);
-    text-decoration-color: black;
-  }
+/* Main Heading Styling */
+.third-title {
+  font-size: 45px;
+  font-weight: lighter;
+  margin-bottom: 40px;
+  color: rgb(237, 219, 230);
+}
+
+/* Horizontal Navigation Bar for Subsections */
+.third-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Increased gap for better spacing */
+  width: 100%;
+  height: max-content;
+  max-width: 600px; /* Adjusted max width */
+  font-size: medium;
+  padding: 20px 10px;
+  background-color: rgba(84, 132, 171, 0.748); /* Light transparent background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 300px 0px 300px 0px;
+}
+
+/* Each Subsection Box */
+.third-box {
+  border-radius: 50px 0px 50px 0px;
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Centers text vertically */
+  justify-content: center; /* Centers text horizontally */
+  text-align: center; /* Ensures text is centered */
+  padding: 15px 10px;
+  font-size: medium;
+  font-weight: 200;
+  background-color: rgba(160, 192, 211, 0.604); /* Ensures correct transparency */
+  box-shadow: 0 4px 6px rgba(105, 16, 99, 0.6);
+  text-decoration: none;
+  color: rgb(6, 25, 80);
+  transition: all 0.3s ease;
+  width: 120px; /* Slightly wider boxes for better readability */
+  height: 60px; /* Set a fixed height */
+}
+
+.third-box:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
