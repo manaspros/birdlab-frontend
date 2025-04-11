@@ -3,12 +3,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full screen height */
+  height: 100vh;
   text-align: center;
-  color: rgb(209, 186, 200); /* Light text color for contrast */
+  color: #d1bac8;
   font-family: fantasy;
-  font-size: medium;
-  width: 750px; /* Set a fixed width (adjust as needed) */
+  font-size: 15px;
+  width: 750px;
   height: 120px;
 }
 
@@ -16,46 +16,78 @@
 .third-title {
   font-size: 45px;
   font-weight: lighter;
-  margin-bottom: 40px;
-  color: rgb(237, 219, 230);
+  margin-bottom: 20px;
+  color: rgb(209, 186, 200);
+}
+
+.title-box {
+  background-color: rgba(240, 214, 209, 0.87);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
+  margin-bottom: 20px;
+  width: fit-content;
 }
 
 /* Horizontal Navigation Bar for Subsections */
 .third-list {
   display: flex;
   justify-content: center;
-  gap: 30px; /* Increased gap for better spacing */
+  gap: 20px;
   width: 100%;
   height: max-content;
-  max-width: 600px; /* Adjusted max width */
-  font-size: medium;
-  padding: 20px 10px;
-  background-color: rgba(84, 132, 171, 0.748); /* Light transparent background */
+  max-width: 1500px;
+  padding: 30px 15px;
+  background-color: rgba(84, 132, 171, 0.748);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  border-radius: 300px 0px 300px 0px;
+  border-radius: 10px 100px 100px 100px;
 }
 
 /* Each Subsection Box */
 .third-box {
-  border-radius: 50px 0px 50px 0px;
-  display: flex; /* Enables flexbox */
-  align-items: center; /* Centers text vertically */
-  justify-content: center; /* Centers text horizontally */
-  text-align: center; /* Ensures text is centered */
-  padding: 15px 10px;
+  border-radius: 0px 50px 50px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 15px;
   font-size: medium;
-  font-weight: 200;
-  background-color: rgba(160, 192, 211, 0.604); /* Ensures correct transparency */
+  font-weight: 250;
+  background-color: rgba(160, 192, 211, 0.604);
+  /* Ensures correct transparency */
   box-shadow: 0 4px 6px rgba(105, 16, 99, 0.6);
   text-decoration: none;
   color: rgb(6, 25, 80);
   transition: all 0.3s ease;
-  width: 120px; /* Slightly wider boxes for better readability */
-  height: 60px; /* Set a fixed height */
+  width: 100px;
+  height: 60px;
 }
 
 .third-box:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(85, 36, 36, 0.1);
   cursor: pointer;
+}
+
+.paper-box {
+  background-color: rgba(240, 214, 209, 0.87);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
+  margin-top: 20px;
+  text-align: left;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paper-box h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #851e3e;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.paper-box p {
+  color: #5e2d2d;
 }
