@@ -1,84 +1,139 @@
-/* Center the main container */
-.main-container {
+/* Additional styles for expandable Research section */
+
+.expandable {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-  text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
+  position: relative; /* Make relative for absolute positioning of children */
 }
 
-/* Styling for the main title */
-.main-title {
-  font-size: 3vw; /* Responsive font size */
-  font-weight: bold;
-  margin-bottom: 20px;
+/* Arrow styling for expand/collapse icon */
+.arrow {
+  font-size: 0.8rem;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
 }
 
-/* Styling for the navigation block */
-.sections-container {
+.arrow.up::after {
+  content: "▲";
+}
+
+.arrow.down::after {
+  content: "▼";
+}
+
+/* Hidden by default and positioned absolutely */
+.research-subsections {
+  position: absolute;
+  top: 100%; /* Position below the parent */
+  left: 0;
+  width: 100%; /* Match the width of the parent */
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+  background-color: white; /* Add a background color for the dropdown */
+  border: 1px solid #ccc; /* Optional border for visual separation */
+  border-top: none; /* Remove top border to connect visually */
+  border-radius: 0 0 6px 6px; /* Rounded bottom corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  z-index: 10; /* Ensure it appears above other elements */
+}
+
+/* Show when expanded */
+.research-subsections.expanded {
+  max-height: 300px; /* Enough height for all items */
+  opacity: 1;
+  margin-top: 0; /* Remove the margin-top when expanded */
+  padding-top: 6px; /* Add some padding at the top when expanded */
+}
+
+/* Individual research subsection items */
+
+
+.research-subsection:hover {
+  background-color: #f0f0f0; /* Light background on hover */
+}
+/* Hidden by default and positioned absolutely */
+.research-subsections {
+  position: absolute;
+  top: calc(100% + 0px); /* Adjust the 0px if needed for border/spacing */
+  left: 0;
+  width: 100%; /* Match the width of the parent */
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+  background-color: white; /* Add a background color for the dropdown */
+  border: 1px solid #ccc; /* Optional border for visual separation */
+  border-top: none; /* Remove top border to connect visually */
+  border-radius: 0 0 6px 6px; /* Rounded bottom corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  z-index: 10; /* Ensure it appears above other elements */
+}
+/* Additional styles for expandable Research section */
+
+.expandable {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-  gap: 15px;
-  width: 90%;
-  max-width: 800px;
-  padding: 15px;
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Make relative for absolute positioning of children */
 }
 
-/* Individual section styles */
-.section-box {
-  padding: 12px 20px;
-  font-size: 1.2rem; /* Responsive font size */
-  font-weight: 500;
-  background-color: rgb(96, 28, 144);
-  border-radius: 5px;
-  text-decoration:none;
-  color: black;
-  transition: all 0.3s ease;
+.expandable:hover .research-subsections {
+  max-height: 300px; /* Enough height for all items */
+  opacity: 1;
+  margin-top: 0; /* Remove the margin-top when expanded */
+  padding-top: 6px; /* Add some padding at the top when expanded */
+  display: block; /* Override the default hidden state on hover */
+}
+
+/* Arrow styling for expand/collapse icon */
+.arrow {
+  font-size: 0.8rem;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.up::after {
+  content: "▲";
+}
+
+.arrow.down::after {
+  content: "▼";
+}
+
+/* Hidden by default and positioned absolutely */
+.research-subsections {
+  position: absolute;
+  top: calc(100% + 0px); /* Position below the parent */
+  left: 0;
+  width: 100%; /* Match the width of the parent */
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, display 0s 0.4s; /* Add delay for display */
+  opacity: 0;
+  background-color: white; /* Add a background color for the dropdown */
+  border: 1px solid #ccc; /* Optional border for visual separation */
+  border-top: none; /* Remove top border to connect visually */
+  border-radius: 0 0 6px 6px; /* Rounded bottom corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  z-index: 10; /* Ensure it appears above other elements */
+  display: none; /* Initially hidden */
+}
+
+/* Individual research subsection items */
+.research-subsection {
+  padding: 8px 14px;
+  margin: 0; /* Remove default margin */
+  background-color: transparent; /* Make background transparent */
+  border-left: 4px solid #601c90;
   cursor: pointer;
-  flex: 1; /* Allow items to expand */
-  text-align: center;
-  min-width: 120px;
-  max-width: 200px;
+  font-size: 1rem;
+  text-align: left;
+  transition: background-color 0.2s ease;
 }
 
-/* Hover effect */
-.section-box:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .sections-container {
-      flex-direction: column; /* Stack items vertically */
-      width: 100%;
-  }
-
-  .section-box {
-      width: 75%; /* Adjust width for smaller screens */
-      min-width: 20%;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-title {
-      font-size: 5vw; /* Adjust title size for small devices */
-  }
-
-  .sections-container {
-      padding: 10px;
-      gap: 10px;
-  }
-
-  .section-box {
-      font-size: 1rem; /* Reduce font size for very small screens */
-      padding: 5px;
-  }
+.research-subsection:hover {
+  background-color: #f0f0f0; /* Light background on hover */
 }
