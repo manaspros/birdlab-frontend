@@ -1,11 +1,17 @@
 .app-background {
-  background-image: url("./assets/blbg.png");  /* Path to the background image */
-  background-size: cover;  /* Cover the whole page */
-  background-position: center;  /* Center the image */
-  background-repeat: no-repeat;  /* Do not repeat */
+  background-image: url("./assets/blbg.png");
+  /* Path to the background image */
+  background-size: cover;
+  /* Cover the whole page */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat */
   background-color: rgb(218, 143, 220);
-  width: 100vw;  /* Full viewport width */
-  height: 100vh;  /* Full viewport height */
+  width: 100vw;
+  /* Full viewport width */
+  height: 100vh;
+  /* Full viewport height */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,15 +25,20 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(142, 60, 151, 0.3); /* White with 30% transparency */
-  z-index: 1; /* Ensures overlay is above the background */
+  background: rgba(142, 60, 151, 0.3);
+  /* White with 30% transparency */
+  z-index: 1;
+  /* Ensures overlay is above the background */
 }
+
 .app-content {
   position: relative;
-  z-index: 2; /* Ensures content is above the overlay */
+  z-index: 2;
+  /* Ensures content is above the overlay */
   text-align: center;
-  color: rgb(223, 209, 222); /* Adjust text color for visibility */
-  font-family:fantasy;
+  color: rgb(223, 209, 222);
+  /* Adjust text color for visibility */
+  font-family: fantasy;
 }
 
 /* Centering the Main Heading */
@@ -37,7 +48,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Full screen height */
+  height: 100vh;
+  /* Full screen height */
   text-align: center;
 }
 
@@ -53,4 +65,3 @@
   background-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
-

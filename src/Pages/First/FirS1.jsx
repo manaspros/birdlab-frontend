@@ -1,5 +1,5 @@
 import React from "react";
-import "./First.css"; // Import shared styles
+import "./First.css"; // Or a specific FirS1.css if you have one
 
 const FirS1 = () => {
   return (
@@ -12,4 +12,4 @@ const FirS1 = () => {
   );
 };
 
-export default FirS1;
+export default FirS1; 

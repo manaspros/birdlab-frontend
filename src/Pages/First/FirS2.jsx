@@ -6,7 +6,7 @@ const FirS2 = () => {
     <div className="section-container">
       <h1>Artificial Muscle-Based Robotic Finger</h1>
       <p>
-        This section explores the design and control of artificial muscles applied to robotic finger mechanisms.
+
       </p>
     </div>
   );
