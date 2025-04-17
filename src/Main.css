@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start; /* Align items at the top */
-  padding-top: 20px; /* Add some top padding to accommodate logos and navbar */
+  padding-top: 0px; /* Add some top padding to accommodate logos and navbar */
 }
 
 /* Overlay effect */
