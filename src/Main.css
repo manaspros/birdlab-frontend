@@ -1,78 +1,127 @@
-/* Additional styles for expandable Research section */
-
-.expandable {
+.app-background {
+  background-image: url("./assets/blbg.png"); /* Path to the background image */
+  background-size: cover; /* Cover the whole page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat */
+  background-color: rgb(218, 143, 220);
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  position: relative; /* Make relative for absolute positioning of children */
+  justify-content: flex-start; /* Align items at the top */
+  padding-top: 20px; /* Add some top padding to accommodate logos and navbar */
 }
 
-/* Arrow styling for expand/collapse icon */
-.arrow {
-  font-size: 0.8rem;
-  margin-left: 8px;
-  transition: transform 0.3s ease;
-}
-
-.arrow.up::after {
-  content: "▲";
-}
-
-.arrow.down::after {
-  content: "▼";
-}
-
-/* Hidden by default and positioned absolutely */
-.research-subsections {
+/* Overlay effect */
+.app-background::before {
+  content:"";
   position: absolute;
-  top: 100%; /* Position below the parent */
+  top: 0;
   left: 0;
-  width: 100%; /* Match the width of the parent */
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-  opacity: 0;
-  background-color: white; /* Add a background color for the dropdown */
-  border: 1px solid #ccc; /* Optional border for visual separation */
-  border-top: none; /* Remove top border to connect visually */
-  border-radius: 0 0 6px 6px; /* Rounded bottom corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  z-index: 10; /* Ensure it appears above other elements */
+  width: 100%;
+  height: 100%;
+  background: rgba(142, 60, 151, 0.3); /* White with 30% transparency */
+  z-index: 1; /* Ensures overlay is above the background */
 }
 
-/* Show when expanded */
-.research-subsections.expanded {
-  max-height: 300px; /* Enough height for all items */
-  opacity: 1;
-  margin-top: 0; /* Remove the margin-top when expanded */
-  padding-top: 6px; /* Add some padding at the top when expanded */
+.app-content {
+  position: relative;
+  z-index: 2; /* Ensures content is above the overlay */
+  text-align: center;
+  color: rgb(223, 209, 222); /* Adjust text color for visibility */
+  font-family: fantasy;
+  display: flex; /* Enable flexbox for top elements */
+  flex-direction: column; /* Stack logos and navbar */
+  align-items: center; /* Center items horizontally */
+  width: 100%; /* Adjust width as needed */
+  max-width: 100vw; /* Match or adjust to your navbar's max-width */
+  padding: 10px; /* Add some padding to the content area */
 }
 
-/* Individual research subsection items */
-
-
-.research-subsection:hover {
-  background-color: #f0f0f0; /* Light background on hover */
+/* Container for top elements (logos and navbar) */
+.top-bar-container {
+  display: flex;
+  justify-content: space-between; /* Space out logos and navbar */
+  align-items: center; /* Vertically align logos and navbar */
+  width: 100%; /* Take full width to position logos at edges */
+  max-width: 800 px; /* Match the max-width of your sections-container */
+  margin-bottom: 0px; /* Space between top bar and main title */
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
-/* Hidden by default and positioned absolutely */
-.research-subsections {
-  position: absolute;
-  top: calc(100% + 0px); /* Adjust the 0px if needed for border/spacing */
-  left: 0;
-  width: 100%; /* Match the width of the parent */
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-  opacity: 0;
-  background-color: white; /* Add a background color for the dropdown */
-  border: 1px solid #ccc; /* Optional border for visual separation */
-  border-top: none; /* Remove top border to connect visually */
-  border-radius: 0 0 6px 6px; /* Rounded bottom corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  z-index: 10; /* Ensure it appears above other elements */
+
+/* Style for the logos */
+.top-logo {
+  width: 40px; /* Adjust logo size */
+  height: 40px; /* Adjust logo size */
+  border-radius: 50%; /* Make it circular */
+  background-color: rgba(119, 159, 188, 0.8); /* Match sections-container background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(15, 32, 79); /* Match sections text color */
+  font-size: 1em; /* Optional: logo text size */
+  z-index: 3; /* Ensure logos are above overlay */
 }
+
+/* Centering the Main Heading */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align main content from the top */
+  text-align: end; /* Align title to the end (right) */
+  margin-top: 80px; /* Add margin to avoid overlap with fixed navbar */
+}
+
+/* Heading Styling */
+.main-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* Horizontal Navigation Bar */
+.sections-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px 10px;
+  background-color: rgba(119, 159, 188, 0.8); /* Match the desired blue */
+  border-radius: 10px 0px 10px 0px;
+  box-shadow: 0 4px 6px rgba(108, 17, 95, 0.3);
+  position: fixed; /* Fix the position to the viewport */
+  top: 0; /* Stick it to the top */
+  left: 50%; /* Move the left edge to the center */
+  transform: translateX(-50%); /* Center the bar horizontally */
+  z-index: 100; /* Ensure it stays above other content */
+}
+
+/* Each Section Box */
+.section-box {
+  padding: 2px 5px;
+  font-size: medium;
+  font-weight: 500;
+  background-color: rgba(160, 192, 211, 0.604);
+  border-radius: 5px 0px 5px 0px;
+  box-shadow: 0 4px 6px rgba(105, 16, 99, 0.6);
+  text-decoration: none;
+  color: rgb(15, 32, 79);
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100px; /* Set a fixed width (adjust as needed) */
+  height: 30px;
+}
+
+.section-box:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
 /* Additional styles for expandable Research section */
-
 .expandable {
   display: flex;
   justify-content: space-between;
@@ -93,6 +142,7 @@
   font-size: 0.8rem;
   margin-left: 8px;
   transition: transform 0.3s ease;
+  color: rgb(15, 32, 79); /* Arrow color */
 }
 
 .arrow.up::after {
@@ -109,13 +159,15 @@
   top: calc(100% + 0px); /* Position below the parent */
   left: 0;
   width: 100%; /* Match the width of the parent */
-  overflow: hidden;
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
   max-height: 0;
   transition: max-height 0.4s ease, opacity 0.3s ease, display 0s 0.4s; /* Add delay for display */
   opacity: 0;
-  background-color: white; /* Add a background color for the dropdown */
-  border: 1px solid #ccc; /* Optional border for visual separation */
+  background-color: rgba(230, 210, 210, 0.675); /* Add a background color for the dropdown */
+  border: 1px solid #81a1cbb7; /* Optional border for visual separation */
   border-top: none; /* Remove top border to connect visually */
+  border-bottom: none;
+  border-right: none;
   border-radius: 0 0 6px 6px; /* Rounded bottom corners */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
   z-index: 10; /* Ensure it appears above other elements */
@@ -132,6 +184,7 @@
   font-size: 1rem;
   text-align: left;
   transition: background-color 0.2s ease;
+  color: rgb(15, 32, 79); /* Subsection text color */
 }
 
 .research-subsection:hover {
