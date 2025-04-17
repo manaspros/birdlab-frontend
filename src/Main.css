@@ -2,7 +2,7 @@
   background-image: url("./assets/blbg.png"); /* Path to the background image */
   background-size: cover; /* Cover the whole page */
   background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat */
+  background-repeat:repeat; /* Do not repeat */
   background-color: rgb(218, 143, 220);
   width: 100vw; /* Full viewport width */
   height: 100vh; /* Full viewport height */
@@ -71,7 +71,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start; /* Align main content from the top */
-  text-align: end; /* Align title to the end (right) */
+   /* Align title to the end (right) */
   margin-top: 80px; /* Add margin to avoid overlap with fixed navbar */
 }
 
@@ -94,8 +94,8 @@
   border-radius: 10px 0px 10px 0px;
   box-shadow: 0 4px 6px rgba(108, 17, 95, 0.3);
   position: fixed; /* Fix the position to the viewport */
-  top: 0; /* Stick it to the top */
-  left: 50%; /* Move the left edge to the center */
+  top: 0; /* Stick it to the top */ 
+  left: 50%;/* Move the left edge to the center */
   transform: translateX(-50%); /* Center the bar horizontally */
   z-index: 100; /* Ensure it stays above other content */
 }

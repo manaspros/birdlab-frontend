@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
 import "./First.css"; // Import CSS
 import bioinspiresTSAImage from '../../assets/BioinspiresTSA.png';
 
@@ -10,7 +9,7 @@ const First = () => {
     switch (selectedTopic) {
       case 'firs1':
         return (
-          <div className="paper-box"> {/* Added paper-box class */}
+          <div className="paper-box scrollable-content"> {/* Added scrollable-content class */}
             <h3>Bio-inspired Muscles-TSA</h3>
             <img
               src={bioinspiresTSAImage}
@@ -35,7 +34,6 @@ const First = () => {
 
               Despite their many advantages, TSAs also present certain challenges. Their motion is nonlinear, meaning that control systems must account for the relationship between motor rotation and string contraction. Additionally, string wear and fatigue can limit long-term performance, requiring periodic maintenance or material optimization. However, ongoing research continues to improve TSA designs through better modeling, advanced materials, and smart control strategies.
             </p>
-
             <p style={{ marginTop: '20px' }}>
               In summary, the Bio-inspired Twisted String Actuator represents a promising class of actuators that blend simplicity with powerful functionality. By mimicking the efficient mechanics of biological muscles, TSAs open new avenues for the development of responsive, lightweight, and adaptive robotic systems, making them a cornerstone technology in the advancement of bio-inspired engineering.
             </p>
@@ -43,7 +41,7 @@ const First = () => {
         );
       case 'firs2':
         return (
-          <div className="paper-box">
+          <div className="paper-box scrollable-content">
             <h3>Artificial Muscle-Based Robotic Finger</h3>
             <p>Introduction: Artificial Muscle-Based Robotic Finger
               In the rapidly evolving field of robotics, the development of systems that closely replicate human movement and dexterity is a key area of research. One such advancement is the Artificial Muscle-Based Robotic Finger, designed to emulate the complex motion and force generation capabilities of a human finger. Unlike traditional robotic joints driven by rigid motors and gears, this innovative approach utilizes artificial muscles—typically made from materials or mechanisms like Twisted String Actuators (TSAs), pneumatic muscles (McKibben actuators), shape memory alloys (SMAs), or electroactive polymers (EAPs)—to produce biologically inspired, flexible movement.
@@ -57,14 +55,13 @@ const First = () => {
               However, challenges remain in developing artificial muscle-based robotic fingers. These include material fatigue, slow response time (in some actuators like SMAs), and complex control algorithms due to the nonlinear behavior of artificial muscles. Yet, ongoing research and material innovation continue to enhance performance, durability, and responsiveness.
 
               In conclusion, the Artificial Muscle-Based Robotic Finger is a remarkable step toward creating robotic systems that not only move like humans but also interact with the environment in a safe, responsive, and efficient manner. This bio-inspired design has the potential to revolutionize fields such as rehabilitation, human-robot interaction, and advanced prosthetics, bringing robotics closer to human-like capability.
-
             </p>
             {/* Add more content here */}
           </div>
         );
       case 'firs3':
         return (
-          <div className="paper-box">
+          <div className="paper-box scrollable-content">
             <h3>Artificial Muscle-Based Robotic Hand</h3>
             <p>Introduction: Artificial Muscle-Based Robotic Hand
               As robotics continues to advance toward greater human-like functionality and adaptability, one of the most compelling innovations is the development of the Artificial Muscle-Based Robotic Hand. This cutting-edge technology is designed to replicate the dexterity, flexibility, and responsiveness of the human hand by using artificial muscles in place of traditional rigid motors and linkages. Inspired by biological systems, these actuators mimic the contraction and relaxation of natural muscles, enabling the robotic hand to perform complex tasks such as grasping, pinching, and manipulating objects with precision.
@@ -78,14 +75,13 @@ const First = () => {
               Despite their promise, artificial muscle-based robotic hands face several technical challenges. These include nonlinear behavior, limited lifespan of materials, response time delays (in SMAs and some soft actuators), and complex control algorithms needed for precise coordination of multiple actuators. However, ongoing advancements in smart materials, soft robotics, and AI-based control are steadily overcoming these limitations.
 
               In conclusion, the Artificial Muscle-Based Robotic Hand represents a significant step forward in creating robotic systems that combine human-like motion with intelligent adaptability. By leveraging principles of biomechanics and biomimetics, these systems not only enhance robotic functionality but also bring us closer to seamless integration of robots in daily human environments.
-
             </p>
             {/* Add more content here */}
           </div>
         );
       case 'firs4':
         return (
-          <div className="paper-box">
+          <div className="paper-box scrollable-content">
             <h3>Hawk Gripper</h3>
             <p>Introduction: Hawk Gripper
               The Hawk Gripper is a specialized, bio-inspired robotic end-effector designed to mimic the powerful grasping and precision capabilities of a hawk’s talon. Taking inspiration from the natural world—particularly raptors like hawks and eagles—this type of robotic gripper emphasizes strong, adaptive, and high-speed gripping mechanisms suited for handling irregular, soft, or fragile objects. Its unique design makes it highly effective in applications such as aerial robotics, search and rescue, agriculture, and grasping in unstructured environments.
@@ -106,7 +102,7 @@ const First = () => {
         );
       case 'firs5':
         return (
-          <div className="paper-box">
+          <div className="paper-box scrollable-content">
             <h3>Cat-Leap Parkour Rolling Mechanism</h3>
             <p>Introduction: Cat-Leap Parkour Rolling Mechanism
               The Cat-Leap Parkour Rolling Mechanism is a biomechanically inspired motion strategy derived from human parkour movements—specifically the cat-leap (or cat grab) and subsequent parkour roll. This mechanism is studied and applied in fields like robotic locomotion, biomechanics, motion planning, and animation systems, where dynamic movement over obstacles is essential.

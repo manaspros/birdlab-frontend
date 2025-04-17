@@ -2,19 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Center items horizontally */
-  justify-content: flex-start;
-  /* Align items to the top vertically */
-  min-height: 100vh;
-  /* Ensure it takes at least the full viewport height */
+  justify-content: center;
+  height: 100vh;
   text-align: center;
   color: #d1bac8;
   font-family: fantasy;
   font-size: 15px;
-  width: 100%;
-  /* Allow it to take full width to center content within */
-  padding-top: 50px;
-  /* Add some top padding for spacing */
+  width: 750px;
+  height: 120px;
 }
 
 .first-title {
@@ -57,7 +52,8 @@
   font-size: medium;
   font-weight: 250;
   background-color: rgba(160, 192, 211, 0.604);
-  box-shadow: 0 4px 6px rgba(105, 16, 99, 0.6);
+  /* Ensures correct transparency */
+  box-shadow: 0px 4px 6px rgba(105, 16, 99, 0.6);
   text-decoration: none;
   color: rgb(6, 25, 80);
   transition: all 0.3s ease;
@@ -76,43 +72,23 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
   margin-top: 20px;
-  text-align: left;
-  width: 8000px;
-  /* Increased the width */
-  height: fit-content;
-  margin-left: auto;
-  /* Keep auto margins for centering */
-  margin-right: auto;
-  font-family: Calibri, sans-serif;
-  color: #28a745;
+  text-align: center;
+  max-width: 100vw;
+  max-height: 100vh;
+  align-items:center;
 }
 
 .paper-box h3 {
-  font-family: Calibri, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  color: #851e3e;
   font-size: 1.5em;
   margin-bottom: 0.5em;
-  color: #9ea9a1;
-  width: 100%;
+  align-items: center;
 }
 
 .paper-box p {
-  color: #051509;
-  font-family: Calibri, sans-serif;
-}
-
-.text-image-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.text-area {
-  flex: 1;
-  margin-right: 20px;
-}
-
-.larger-image-right {
-  width: 400px;
-  height: auto;
-  margin-left: 20px;
+  color: #5e2d2d;
+  size-adjust:inherit;
+  width: 70vw;
+  align-items: center;
 }
