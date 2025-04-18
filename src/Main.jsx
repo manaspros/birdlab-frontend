@@ -11,6 +11,7 @@ const Main = () => {
         <div className="top-bar-container">
           <div className="top-logo">L</div> {/* Left Logo */}
           <div className="sections-container">
+            <div className="section-box" onClick={() => navigate("/people")}>Welcome</div>
             <div className="section-box" onClick={() => navigate("/people")}>People</div>
             <div className="section-box expandable">
               Research

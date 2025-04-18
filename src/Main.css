@@ -29,7 +29,7 @@
   position: relative;
   z-index: 2; /* Ensures content is above the overlay */
   text-align: center;
-  color: rgb(223, 209, 222); /* Adjust text color for visibility */
+  color: rgba(255, 203, 252, 0.81); /* Adjust text color for visibility */
   font-family: fantasy;
   display: flex; /* Enable flexbox for top elements */
   flex-direction: column; /* Stack logos and navbar */
@@ -88,7 +88,7 @@
   justify-content: center;
   gap: 30px;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   padding: 10px 10px;
   background-color: rgba(119, 159, 188, 0.8); /* Match the desired blue */
   border-radius: 10px 0px 10px 0px;
