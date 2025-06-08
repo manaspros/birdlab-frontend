@@ -53,16 +53,37 @@
 
 /* Style for the logos */
 .top-logo {
-  width: 40px; /* Adjust logo size */
-  height: 40px; /* Adjust logo size */
+  width: 60px; /* Adjust logo size */
+  height: 60px; /* Adjust logo size */
   border-radius: 50%; /* Make it circular */
-  background-color: rgba(119, 159, 188, 0.8); /* Match sections-container background */
+  background-color: rgba(119, 159, 188, 0.9); /* Match sections-container background */
   display: flex;
   justify-content: center;
   align-items: center;
   color: rgb(15, 32, 79); /* Match sections text color */
-  font-size: 1em; /* Optional: logo text size */
+  font-size: 0.8em; /* Optional: logo text size */
+  font-weight: bold;
   z-index: 3; /* Ensure logos are above overlay */
+  border: 2px solid rgba(15, 32, 79, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.top-logo:hover {
+  background-color: rgba(119, 159, 188, 1);
+  transform: scale(1.05);
+}
+
+.birdlab-logo {
+  background-color: rgba(220, 180, 120, 0.9);
+  color: rgb(79, 32, 15);
+  border-color: rgba(79, 32, 15, 0.3);
+}
+
+.iitj-logo {
+  background-color: rgba(120, 180, 220, 0.9);
+  color: rgb(15, 32, 79);
+  border-color: rgba(15, 32, 79, 0.3);
 }
 
 /* Centering the Main Heading */
@@ -73,6 +94,55 @@
   justify-content: flex-start; /* Align main content from the top */
    /* Align title to the end (right) */
   margin-top: 80px; /* Add margin to avoid overlap with fixed navbar */
+}
+
+/* Main page logos container */
+.main-logos-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 30px;
+}
+
+/* Main page logo styling */
+.main-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.main-logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.birdlab-main-logo {
+  background-color: rgba(220, 180, 120, 0.9);
+  color: rgb(79, 32, 15);
+  border-color: rgba(79, 32, 15, 0.5);
+}
+
+.birdlab-main-logo:hover {
+  background-color: rgba(220, 180, 120, 1);
+}
+
+.iitj-main-logo {
+  background-color: rgba(120, 180, 220, 0.9);
+  color: rgb(15, 32, 79);
+  border-color: rgba(15, 32, 79, 0.5);
+}
+
+.iitj-main-logo:hover {
+  background-color: rgba(120, 180, 220, 1);
 }
 
 /* Heading Styling */

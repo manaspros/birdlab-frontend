@@ -9,9 +9,9 @@ const Main = () => {
     <div className="app-background">
       <div className="app-content">
         <div className="top-bar-container">
-          <div className="top-logo">L</div> {/* Left Logo */}
+          <div className="top-logo birdlab-logo">BirdLab</div> {/* Left Logo - BirdLab */}
           <div className="sections-container">
-            <div className="section-box" onClick={() => navigate("/people")}>Welcome</div>
+            <div className="section-box" onClick={() => navigate("/")}>Welcome</div>
             <div className="section-box" onClick={() => navigate("/people")}>People</div>
             <div className="section-box expandable">
               Research
@@ -29,9 +29,13 @@ const Main = () => {
             <div className="section-box" onClick={() => navigate("/positions")}>Open Positions</div>
             <div className="section-box" onClick={() => navigate("/contact")}>Contact</div>
           </div>
-          <div className="top-logo">R</div> {/* Right Logo */}
+          <div className="top-logo iitj-logo">IITJ</div> {/* Right Logo - IITJ */}
         </div>
         <div className="main-container">
+          <div className="main-logos-container">
+            <div className="main-logo birdlab-main-logo">BirdLab</div>
+            <div className="main-logo iitj-main-logo">IITJ</div>
+          </div>
           <h1 className="main-title">Welcome to BirdLab</h1>
           {/* ... rest of your main content ... */}
         </div>

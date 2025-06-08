@@ -9,6 +9,13 @@ import Third from "./Pages/Third/Third";
 import Fourth from "./Pages/Fourth/Fourth";
 import Fifth from "./Pages/Fifth/Fifth";
 
+// Import other pages
+import People from "./Pages/People";
+import Publications from "./Pages/Publications";
+import Lectures from "./Pages/Lectures";
+import Positions from "./Pages/Positions";
+import Contact from "./Pages/Contact";
+
 // Import subsections
 import FirS1 from "./Pages/First/FirS1";
 import FirS2 from "./Pages/First/FirS2";
@@ -72,6 +79,13 @@ function App() {
 
             {/* Fifth Section (No subsections) */}
             <Route path="/fifth" element={<Fifth />} />
+            
+            {/* Other Pages */}
+            <Route path="/people" element={<People />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/lectures" element={<Lectures />} />
+            <Route path="/positions" element={<Positions />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </Router>
       </div>
