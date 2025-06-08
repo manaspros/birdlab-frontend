@@ -31,11 +31,9 @@ const Main = () => {
           </div>
           <div className="top-logo iitj-logo">IITJ</div> {/* Right Logo - IITJ */}
         </div>
+        
         <div className="main-container">
-          <div className="main-logos-container">
-            <div className="main-logo birdlab-main-logo">BirdLab</div>
-            <div className="main-logo iitj-main-logo">IITJ</div>
-          </div>
+          {/* Removed main-logos-container here */}
           <h1 className="main-title">Welcome to BirdLab</h1>
           {/* ... rest of your main content ... */}
         </div>
