@@ -234,3 +234,16 @@
         max-height: calc(100vh - 120px); /* Further adjust for very small screens */
     }
 }
+
+/* For the main title */
+.first-title {
+  color: #333333;
+  /* Dark Grey */
+}
+
+
+/* For sub-headings like "Applications Across Industries" */
+.paper-box h4 {
+  color: #555555;
+  /* Slightly lighter dark grey */
+}
