@@ -135,7 +135,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: rgba(31, 75, 114, 0.323);
+  background-color: rgba(31, 75, 114, 0.17);
   padding: 0.5rem;
   border-radius: 3px;
   margin-top: 0.3rem;
@@ -162,7 +162,7 @@
 }
 
 .research-subsection:hover {
-  background-color: rgba(253, 244, 253, 0.784);
+  background-color: rgba(255, 237, 254, 0.878);
 }
 
 /* Logo color variants */

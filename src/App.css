@@ -5,12 +5,12 @@
   /* Cover the whole page */
   background-position: center;
   /* Center the image */
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   /* Do not repeat */
   background-color: rgb(218, 143, 220);
-  width: 100vw;
+  width:100vw;
   /* Full viewport width */
-  height: 100vh;
+  min-height:100vh;
   /* Full viewport height */
   display: flex;
   flex-direction: column;
