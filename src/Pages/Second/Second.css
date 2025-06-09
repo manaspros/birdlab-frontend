@@ -1,93 +1,236 @@
+/* Second.css */
+
+/* Overall Container for the Second Page */
 .second-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-  color: #d1bac8;
-  font-family: fantasy;
-  font-size: 15px;
-  width: 750px;
-  height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers content vertically in the available space */
+    height: 100vh; /* Make the container take up the full viewport height */
+    text-align: center;
+    color: #d1bac8; /* This color is very light, might need adjustment for readability on some backgrounds */
+    font-family: fantasy; /* Be cautious with 'fantasy' as it's not universally supported */
+    font-size: 15px;
+    width: 750px; /* Specific width as per your request */
+    /* You had two height properties here; keeping 100vh for the main container */
+    margin: 0 auto; /* Center the container horizontally */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    /* The 750px width might cause issues on small screens. Consider max-width instead. */
+    /* If you truly want a fixed width, make sure it's wrapped in a responsive outer container. */
 }
 
-/* Main Heading Styling */
+/* Main Heading Styling for the Page Title (e.g., "Wearable and Collaborative Robotics") */
 .second-title {
-  font-size: 45px;
-  font-weight: lighter;
-  margin-bottom: 20px;
-  color: rgb(209, 186, 200);
+    font-size: 45px;
+    font-weight: lighter;
+    margin-bottom: 20px;
+    color: rgb(209, 186, 200); /* Very light color, check contrast */
+    /* Adjust font-family if 'fantasy' isn't suitable for main title */
 }
 
+/* Styling for the box around the main title, if applicable */
 .title-box {
-  background-color: rgba(240, 214, 209, 0.87);
-  padding: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
-  margin-bottom: 20px;
-  width: fit-content;
+    background-color: rgba(240, 214, 209, 0.87);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
+    margin-bottom: 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Horizontal Navigation Bar for Subsections */
+/* Horizontal Navigation Bar for Subsections (Exoskeletons, Exosuits, etc.) */
 .second-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  height: max-content;
-  max-width: 800px;
-  padding: 30px 15px;
-  background-color: rgba(84, 132, 171, 0.748);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px 100px 100px 100px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    height: max-content; /* As specified, though often redundant with content */
+    max-width: 1000px; /* Max-width as per your request */
+    padding: 30px 15px;
+    background-color: rgba(84, 132, 171, 0.748);
+    border-radius: 10px 100px 100px 100px; /* Asymmetric border-radius */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    /* Removed margin-bottom here as paper-box will follow,
+       but add it to .second-container if content is displayed below nav. */
 }
 
-/* Each Subsection Box */
+/* Each Subsection Button/Box (Exoskeletons, Exosuits, etc.) */
 .second-box {
-  border-radius: 0px 50px 50px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px 15px;
-  font-size: medium;
-  font-weight: 250;
-  background-color: rgba(160, 192, 211, 0.604);
-  /* Ensures correct transparency */
-  box-shadow: 0 4px 6px rgba(105, 16, 99, 0.6);
-  text-decoration: none;
-  color: rgb(6, 25, 80);
-  transition: all 0.3s ease;
-  width: 70px;
-  height: 20px;
+    border-radius: 0px 50px 50px 50px; /* Asymmetric border-radius */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 15px;
+    font-size: medium;
+    font-weight: 250;
+    background-color: rgba(160, 192, 211, 0.604); /* Ensures correct transparency */
+    box-shadow: 0px 4px 6px rgba(105, 16, 99, 0.6); /* As specified */
+    text-decoration: none;
+    color: rgb(6, 25, 80);
+    transition: all 0.3s ease;
+    width: 100px; /* Specific width as per your request */
+    height: 60px; /* Specific height as per your request */
+    /* Consider min-width/min-height for responsiveness if text overflows */
 }
 
 .second-box:hover {
-  background-color: rgba(85, 36, 36, 0.1);
-  cursor: pointer;
+    background-color: rgba(85, 36, 36, 0.1); /* As specified */
+    cursor: pointer;
+    /* Removed transform for consistency with the provided hover style */
 }
 
+/* --- The Content Display Box (where Exoskeletons text appears) --- */
 .paper-box {
-  background-color: rgba(240, 214, 209, 0.87);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
-  margin-top: 20px;
-  text-align: left;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+    background-color: rgba(240, 214, 209, 0.87);
+    padding: 30px; /* Increased padding for more internal space */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
+    margin-top: 20px;
+    text-align: left; /* Keep text-align left for readability of long content */
+    width: 90%; /* Use percentage for responsiveness */
+    max-width: 850px; /* Slightly increased max-width for readability */
+    margin-left: auto;
+    margin-right: auto; /* Center the box */
+
+    /* Scrollable Content */
+    min-height: 400px; /* Ensure a minimum visible height before scrolling */
+    max-height: calc(100vh - 200px); /* Adjust max-height based on viewport, leaving space for other elements */
+                                     /* 200px is an estimate for header, nav, and footer space. Adjust as needed. */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS */
+    
+    /* Scrollbar styles (optional, but good for aesthetics) */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(199, 121, 107, 0.5) rgba(240, 214, 209, 0.87);
 }
 
+/* Webkit-specific scrollbar styles (for Chrome, Safari, Edge) */
+.paper-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.paper-box::-webkit-scrollbar-track {
+    background: rgba(240, 214, 209, 0.87);
+    border-radius: 10px;
+}
+
+.paper-box::-webkit-scrollbar-thumb {
+    background-color: rgba(199, 121, 107, 0.7);
+    border-radius: 10px;
+    border: 2px solid rgba(240, 214, 209, 0.87);
+}
+
+/* Headings within the paper-box */
 .paper-box h3 {
-  font-family: 'Poppins', sans-serif;
-  color: #851e3e;
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
+    font-family: 'Poppins', sans-serif;
+    color: #851e3e;
+    font-size: 2em;
+    margin-bottom: 0.8em;
+    text-align: center;
 }
 
+.paper-box h4 {
+    font-family: 'Poppins', sans-serif;
+    color: #a04000;
+    font-size: 1.4em;
+    margin-top: 1.8em;
+    margin-bottom: 0.7em;
+    border-bottom: 1px solid rgba(199, 121, 107, 0.3);
+    padding-bottom: 5px;
+}
+
+/* Paragraphs within the paper-box */
 .paper-box p {
-  color: #5e2d2d;
+    color: #5e2d2d;
+    line-height: 1.8;
+    margin-bottom: 1em;
+    /* Removed width: 70vw; and align-items: center; as it was causing issues with text alignment and responsiveness in paper-box content */
+}
+
+/* Unordered lists within the paper-box */
+.paper-box ul {
+    list-style-type: disc;
+    margin-left: 30px;
+    margin-bottom: 1em;
+    color: #5e2d2d;
+}
+
+.paper-box ul li {
+    margin-bottom: 0.6em;
+    line-height: 1.6;
+}
+
+.paper-box ul li strong {
+    color: #851e3e;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .second-container {
+        width: 100%; /* Allow container to take full width on smaller screens */
+        padding: 15px;
+    }
+
+    .second-title {
+        font-size: 38px;
+    }
+
+    .second-list {
+        flex-direction: column; /* Stack navigation items vertically on smaller screens */
+        align-items: center;
+        border-radius: 10px;
+        padding: 20px 10px;
+        gap: 15px; /* Adjust gap for stacked items */
+    }
+
+    .second-box {
+        width: 80%; /* Wider buttons on smaller screens */
+        max-width: 350px; /* Limit max width */
+        border-radius: 10px;
+        font-size: medium;
+        height: auto; /* Allow height to adjust to content when stacked */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .paper-box {
+        width: 95%;
+        padding: 20px;
+        max-height: calc(100vh - 150px); /* Adjust max-height for mobile screens */
+    }
+
+    .paper-box h3 {
+        font-size: 1.5em;
+    }
+
+    .paper-box h4 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .second-title {
+        font-size: 30px;
+    }
+
+    .second-container {
+        padding: 10px;
+    }
+
+    .second-list {
+        padding: 15px 5px;
+        gap: 10px;
+    }
+
+    .second-box {
+        padding: 10px 10px;
+        font-size: small;
+    }
+
+    .paper-box {
+        padding: 15px;
+        max-height: calc(100vh - 120px); /* Further adjust for very small screens */
+    }
 }

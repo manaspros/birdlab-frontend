@@ -99,8 +99,9 @@
 /* Main page logos container */
 .main-logos-container {
   display: flex;
-  justify-content: center;
-  gap: 60px;
+  justify-content:center;
+  gap: 1080px;
+  margin-top:0% ;
   margin-bottom: 30px;
 }
 
@@ -150,7 +151,7 @@
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 40px;
-  color: bisque;
+  color:aliceblue;
 }
 
 /* Horizontal Navigation Bar */

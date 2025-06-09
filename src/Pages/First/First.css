@@ -1,94 +1,239 @@
+/* First.css */
+
+/* Overall Container for the First Page */
 .first-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-  color: #d1bac8;
-  font-family: fantasy;
-  font-size: 15px;
-  width: 750px;
-  height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers content vertically in the available space */
+    height: 100vh; /* Make the container take up the full viewport height */
+    text-align: center;
+    color: #d1bac8; /* This color is very light, consider adjusting for better readability on some backgrounds */
+    font-family: 'Poppins', sans-serif; /* Changed from 'fantasy' for better browser support and readability */
+    font-size: 15px;
+    width: 750px; /* Specific width as per your request */
+    margin: 0 auto; /* Center the container horizontally */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    /* The 750px width might cause issues on small screens. Consider using max-width instead for improved responsiveness if needed. */
 }
 
+/* Main Heading Styling for the Page Title */
 .first-title {
-  font-size: 45px;
-  font-weight: lighter;
-  margin-bottom: 20px;
-  color: rgb(209, 186, 200);
+    font-size: 45px;
+    font-weight: lighter;
+    margin-bottom: 20px;
+    color: rgb(209, 186, 200); /* Very light color, check contrast for visibility */
+    font-family: 'Poppins', sans-serif; /* Ensure consistent font for titles */
 }
 
+/* Styling for the box around the main title, if applicable */
 .title-box {
-  background-color: rgba(240, 214, 209, 0.87);
-  padding: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
-  margin-bottom: 20px;
-  width: fit-content;
+    background-color: rgba(240, 214, 209, 0.87);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
+    margin-bottom: 20px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* Horizontal Navigation Bar for Subsections */
 .first-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
-  height: max-content;
-  max-width: 1000px;
-  padding: 30px 15px;
-  background-color: rgba(84, 132, 171, 0.748);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px 100px 100px 100px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    height: max-content; /* Allows height to adjust to content */
+    max-width: 1000px; /* Maximum width for the navigation bar */
+    padding: 30px 15px;
+    background-color: rgba(84, 132, 171, 0.748);
+    border-radius: 10px 100px 100px 100px; /* Asymmetric border-radius */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* Each Subsection Button/Box */
 .first-box {
-  border-radius: 0px 50px 50px 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px 15px;
-  font-size: medium;
-  font-weight: 250;
-  background-color: rgba(160, 192, 211, 0.604);
-  /* Ensures correct transparency */
-  box-shadow: 0px 4px 6px rgba(105, 16, 99, 0.6);
-  text-decoration: none;
-  color: rgb(6, 25, 80);
-  transition: all 0.3s ease;
-  width: 100px;
-  height: 60px;
+    /* --- Specific styling for .first-box, as per your request, preserved --- */
+    border-radius: 0px 50px 50px 50px; /* Unique button shape */
+    width: 100px; /* Fixed width */
+    height: 60px; /* Fixed height */
+    /* ----------------------------------------------------------------- */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 15px;
+    font-size: medium;
+    font-weight: 250;
+    background-color: rgba(160, 192, 211, 0.604); /* Ensures correct transparency */
+    box-shadow: 0px 4px 6px rgba(105, 16, 99, 0.6);
+    text-decoration: none; /* Good practice for buttons that might visually resemble links */
+    color: rgb(6, 25, 80);
+    transition: all 0.3s ease;
 }
 
 .first-box:hover {
-  background-color: rgba(85, 36, 36, 0.1);
-  cursor: pointer;
+    background-color: rgba(85, 36, 36, 0.1);
+    cursor: pointer;
 }
 
+/* --- The Content Display Box (where topic text appears) --- */
 .paper-box {
-  background-color: rgba(240, 214, 209, 0.87);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
-  margin-top: 20px;
-  text-align: center;
-  max-width: 100vw;
-  max-height: 100vh;
-  align-items:center;
+    background-color: rgba(240, 214, 209, 0.87);
+    padding: 30px; /* Increased padding for more internal space */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
+    margin-top: 20px;
+    text-align: left; /* Keep text-align left for readability of long content */
+    width: 90%; /* Use percentage for responsiveness */
+    max-width: 850px; /* Maximum width for readability on large screens */
+    margin-left: auto;
+    margin-right: auto; /* Center the box horizontally */
+
+    /* Scrollable Content */
+    min-height: 400px; /* Ensures a minimum visible height before scrolling begins */
+    max-height: calc(100vh - 200px); /* Adjusts max-height based on viewport, leaving space for headers/footers */
+    overflow-y: auto; /* Enables vertical scrolling when content exceeds max-height */
+    -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS devices */
+    
+    /* Scrollbar styles (optional, for aesthetics) */
+    scrollbar-width: thin; /* Firefox scrollbar style */
+    scrollbar-color: rgba(199, 121, 107, 0.5) rgba(240, 214, 209, 0.87); /* Firefox scrollbar color */
 }
 
+/* Webkit-specific scrollbar styles (for Chrome, Safari, Edge) */
+.paper-box::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.paper-box::-webkit-scrollbar-track {
+    background: rgba(240, 214, 209, 0.87); /* Color of the scrollbar track */
+    border-radius: 10px;
+}
+
+.paper-box::-webkit-scrollbar-thumb {
+    background-color: rgba(199, 121, 107, 0.7); /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    border: 2px solid rgba(240, 214, 209, 0.87); /* Padding around the thumb */
+}
+
+/* Headings within the paper-box */
 .paper-box h3 {
-  font-family: 'Poppins', sans-serif;
-  color: #851e3e;
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
-  align-items: center;
+    font-family: 'Poppins', sans-serif; /* Ensures consistent font for headings */
+    color: #851e3e;
+    font-size: 2em; /* Larger font size for main content headings */
+    margin-bottom: 0.8em;
+    text-align: center;
 }
 
+.paper-box h4 {
+    font-family: 'Poppins', sans-serif;
+    color: #a04000;
+    font-size: 1.4em;
+    margin-top: 1.8em;
+    margin-bottom: 0.7em;
+    border-bottom: 1px solid rgba(199, 121, 107, 0.3); /* Subtle separator line */
+    padding-bottom: 5px;
+}
+
+/* Paragraphs within the paper-box */
 .paper-box p {
-  color: #5e2d2d;
-  size-adjust:inherit;
-  width: 70vw;
-  align-items: center;
+    color: #5e2d2d;
+    line-height: 1.8; /* Increased line-height for better readability */
+    margin-bottom: 1em;
+}
+
+/* Unordered lists within the paper-box */
+.paper-box ul {
+    list-style-type: disc; /* Default disc bullet points */
+    margin-left: 30px; /* Indentation for lists */
+    margin-bottom: 1em;
+    color: #5e2d2d;
+}
+
+.paper-box ul li {
+    margin-bottom: 0.6em; /* Space between list items */
+    line-height: 1.6;
+}
+
+/* Styling for strong tags within lists (optional, but good for emphasis) */
+.paper-box ul li strong {
+    color: #851e3e; /* Makes bold text within list items stand out */
+}
+
+/* Styling for the "Select a topic" prompt text */
+.select-topic-prompt {
+    color: #d1bac8; /* Adjust as needed for visibility against your background */
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .first-container {
+        width: 100%; /* Allow container to take full width on smaller screens */
+        padding: 15px;
+    }
+
+    .first-title {
+        font-size: 38px;
+    }
+
+    .first-list {
+        flex-direction: column; /* Stack navigation items vertically on smaller screens */
+        align-items: center;
+        border-radius: 10px; /* Simpler border-radius for mobile */
+        padding: 20px 10px;
+        gap: 15px; /* Adjust gap for stacked items */
+    }
+
+    .first-box {
+        width: 80%; /* Wider buttons on smaller screens */
+        max-width: 350px; /* Limit max width */
+        border-radius: 10px; /* Makes buttons less rounded on small screens for a cleaner look */
+        font-size: medium;
+        height: auto; /* Allows height to adjust to content when stacked */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .paper-box {
+        width: 95%;
+        padding: 20px;
+        max-height: calc(100vh - 150px); /* Adjust max-height for mobile screens to leave enough space */
+    }
+
+    .paper-box h3 {
+        font-size: 1.5em;
+    }
+
+    .paper-box h4 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .first-title {
+        font-size: 30px;
+    }
+
+    .first-container {
+        padding: 10px;
+    }
+
+    .first-list {
+        padding: 15px 5px;
+        gap: 10px;
+    }
+
+    .first-box {
+        padding: 10px 10px;
+        font-size: small;
+    }
+
+    .paper-box {
+        padding: 15px;
+        max-height: calc(100vh - 120px); /* Further adjust for very small screens */
+    }
 }
