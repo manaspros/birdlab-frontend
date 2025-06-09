@@ -6,6 +6,11 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+      {/* Left Logo */}
+      <div className="nav-logo left-logo">
+        <img src="./assets/logo-left.png" alt="Left Logo" />
+      </div>
+
       {/* Hamburger Menu Icon */}
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
@@ -19,6 +24,11 @@ const Navbar = () => {
         <li><a href="#team">Team</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+
+      {/* Right Logo */}
+      <div className="nav-logo right-logo">
+        <img src="./assets/logo-right.png" alt="Right Logo" />
+      </div>
     </nav>
   );
 };

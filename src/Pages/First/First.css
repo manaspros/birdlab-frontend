@@ -45,7 +45,7 @@
     gap: 20px;
     width: 100%;
     height: max-content; /* Allows height to adjust to content */
-    max-width: 1000px; /* Maximum width for the navigation bar */
+    max-width: 1500px; /* Maximum width for the navigation bar */
     padding: 30px 15px;
     background-color: rgba(84, 132, 171, 0.748);
     border-radius: 10px 100px 100px 100px; /* Asymmetric border-radius */
@@ -81,16 +81,16 @@
 
 /* --- The Content Display Box (where topic text appears) --- */
 .paper-box {
-    background-color: rgba(240, 214, 209, 0.87);
+    background-color: rgba(245, 219, 214, 0.87);
     padding: 30px; /* Increased padding for more internal space */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
     margin-top: 20px;
     text-align: left; /* Keep text-align left for readability of long content */
-    width: 90%; /* Use percentage for responsiveness */
-    max-width: 850px; /* Maximum width for readability on large screens */
-    margin-left: auto;
-    margin-right: auto; /* Center the box horizontally */
+    min-width: 980px; /* Use percentage for responsiveness */
+    max-width: 100%; /* Maximum width for readability on large screens */
+    margin-left: 0;
+    margin-right: 0; /* Center the box horizontally */
 
     /* Scrollable Content */
     min-height: 400px; /* Ensures a minimum visible height before scrolling begins */
@@ -99,7 +99,7 @@
     -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS devices */
     
     /* Scrollbar styles (optional, for aesthetics) */
-    scrollbar-width: thin; /* Firefox scrollbar style */
+    scrollbar-width:thin; /* Firefox scrollbar style */
     scrollbar-color: rgba(199, 121, 107, 0.5) rgba(240, 214, 209, 0.87); /* Firefox scrollbar color */
 }
 
