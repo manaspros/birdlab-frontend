@@ -5,16 +5,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centers content vertically in the available space */
-    height: 100vh; /* Make the container take up the full viewport height */
+    /* Changed from 'justify-content: center' to 'flex-start' for more control over vertical spacing */
+    justify-content: flex-start;
+    /* Aligns items to the top initially */
+    height: 100vh;
     text-align: center;
-    color: #d1bac8; /* This color is very light, consider adjusting for better readability on some backgrounds */
-    font-family: 'Poppins', sans-serif; /* Changed from 'fantasy' for better browser support and readability */
+    color: #d1bac8;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
-    width: 750px; /* Specific width as per your request */
-    margin: 0 auto; /* Center the container horizontally */
-    box-sizing: border-box; /* Include padding in the element's total width and height */
-    /* The 750px width might cause issues on small screens. Consider using max-width instead for improved responsiveness if needed. */
+    /* Use max-width for better responsiveness, keeping 750px as a target for larger screens */
+    max-width: 750px;
+    /* Use max-width instead of fixed width */
+    width: 95%;
+    /* Allow it to shrink on smaller screens */
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-top: 350px;
+    /* Add some padding to push ALL content down from the very top */
+    /* If 100vh and padding-top conflict, consider min-height: 100vh instead of height. */
 }
 
 /* Main Heading Styling for the Page Title */
@@ -22,8 +30,8 @@
     font-size: 45px;
     font-weight: lighter;
     margin-bottom: 20px;
-    color: rgb(209, 186, 200); /* Very light color, check contrast for visibility */
-    font-family: 'Poppins', sans-serif; /* Ensure consistent font for titles */
+    color: rgb(209, 186, 200);
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Styling for the box around the main title, if applicable */
@@ -44,22 +52,23 @@
     justify-content: center;
     gap: 20px;
     width: 100%;
-    height: max-content; /* Allows height to adjust to content */
-    max-width: 1500px; /* Maximum width for the navigation bar */
+    /* Take full width of its parent (first-container) */
+    height: max-content;
+    max-width: 1000px;
+    /* Max-width for the navigation bar */
     padding: 30px 15px;
     background-color: rgba(84, 132, 171, 0.748);
-    border-radius: 10px 100px 100px 100px; /* Asymmetric border-radius */
+    border-radius: 10px 100px 100px 100px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    /* Add margin-top to separate from title-box if needed */
 }
 
 /* Each Subsection Button/Box */
 .first-box {
-    /* --- Specific styling for .first-box, as per your request, preserved --- */
-    border-radius: 0px 50px 50px 50px; /* Unique button shape */
-    width: 100px; /* Fixed width */
-    height: 60px; /* Fixed height */
-    /* ----------------------------------------------------------------- */
-
+    border-radius: 0px 50px 50px 50px;
+    width: 100px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,9 +76,9 @@
     padding: 20px 15px;
     font-size: medium;
     font-weight: 250;
-    background-color: rgba(160, 192, 211, 0.604); /* Ensures correct transparency */
+    background-color: rgba(160, 192, 211, 0.604);
     box-shadow: 0px 4px 6px rgba(105, 16, 99, 0.6);
-    text-decoration: none; /* Good practice for buttons that might visually resemble links */
+    text-decoration: none;
     color: rgb(6, 25, 80);
     transition: all 0.3s ease;
 }
@@ -81,49 +90,57 @@
 
 /* --- The Content Display Box (where topic text appears) --- */
 .paper-box {
-    background-color: rgba(245, 219, 214, 0.87);
-    padding: 30px; /* Increased padding for more internal space */
+    background-color: rgba(240, 214, 209, 0.87);
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
-    margin-top: 20px;
-    text-align: left; /* Keep text-align left for readability of long content */
-    min-width: 980px; /* Use percentage for responsiveness */
-    max-width: 100%; /* Maximum width for readability on large screens */
-    margin-left: 0;
-    margin-right: 0; /* Center the box horizontally */
+    margin-top: 50px;
+    /* INCREASE THIS VALUE TO PUSH IT DOWN FURTHER */
+    text-align: left;
+
+    /* REVISED WIDTH PROPERTIES FOR BETTER CONTROL */
+    width: 90%;
+    /* Take 90% of the parent's available width */
+    max-width: 850px;
+    /* Limit its maximum width for readability */
+    /* Remove min-width: 980px; as it conflicts with the parent's max-width: 750px and makes it thin */
+
+    margin-left: auto;
+    margin-right: auto;
 
     /* Scrollable Content */
-    min-height: 400px; /* Ensures a minimum visible height before scrolling begins */
-    max-height: calc(100vh - 200px); /* Adjusts max-height based on viewport, leaving space for headers/footers */
-    overflow-y: auto; /* Enables vertical scrolling when content exceeds max-height */
-    -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS devices */
-    
+    min-height: 400px;
+    max-height: calc(100vh - 250px);
+    /* Adjusted to allow more space at top/bottom */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
     /* Scrollbar styles (optional, for aesthetics) */
-    scrollbar-width:thin; /* Firefox scrollbar style */
-    scrollbar-color: rgba(199, 121, 107, 0.5) rgba(240, 214, 209, 0.87); /* Firefox scrollbar color */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(199, 121, 107, 0.5) rgba(240, 214, 209, 0.87);
 }
 
 /* Webkit-specific scrollbar styles (for Chrome, Safari, Edge) */
 .paper-box::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
+    width: 8px;
 }
 
 .paper-box::-webkit-scrollbar-track {
-    background: rgba(240, 214, 209, 0.87); /* Color of the scrollbar track */
+    background: rgba(240, 214, 209, 0.87);
     border-radius: 10px;
 }
 
 .paper-box::-webkit-scrollbar-thumb {
-    background-color: rgba(199, 121, 107, 0.7); /* Color of the scrollbar thumb */
+    background-color: rgba(199, 121, 107, 0.7);
     border-radius: 10px;
-    border: 2px solid rgba(240, 214, 209, 0.87); /* Padding around the thumb */
+    border: 2px solid rgba(240, 214, 209, 0.87);
 }
 
 /* Headings within the paper-box */
 .paper-box h3 {
-    font-family: 'Poppins', sans-serif; /* Ensures consistent font for headings */
+    font-family: 'Poppins', sans-serif;
     color: #851e3e;
-    font-size: 2em; /* Larger font size for main content headings */
+    font-size: 2em;
     margin-bottom: 0.8em;
     text-align: center;
 }
@@ -134,38 +151,38 @@
     font-size: 1.4em;
     margin-top: 1.8em;
     margin-bottom: 0.7em;
-    border-bottom: 1px solid rgba(199, 121, 107, 0.3); /* Subtle separator line */
+    border-bottom: 1px solid rgba(199, 121, 107, 0.3);
     padding-bottom: 5px;
 }
 
 /* Paragraphs within the paper-box */
 .paper-box p {
     color: #5e2d2d;
-    line-height: 1.8; /* Increased line-height for better readability */
+    line-height: 1.8;
     margin-bottom: 1em;
 }
 
 /* Unordered lists within the paper-box */
 .paper-box ul {
-    list-style-type: disc; /* Default disc bullet points */
-    margin-left: 30px; /* Indentation for lists */
+    list-style-type: disc;
+    margin-left: 30px;
     margin-bottom: 1em;
     color: #5e2d2d;
 }
 
 .paper-box ul li {
-    margin-bottom: 0.6em; /* Space between list items */
+    margin-bottom: 0.6em;
     line-height: 1.6;
 }
 
 /* Styling for strong tags within lists (optional, but good for emphasis) */
 .paper-box ul li strong {
-    color: #851e3e; /* Makes bold text within list items stand out */
+    color: #851e3e;
 }
 
 /* Styling for the "Select a topic" prompt text */
 .select-topic-prompt {
-    color: #d1bac8; /* Adjust as needed for visibility against your background */
+    color: #d1bac8;
     font-size: 1.2em;
     margin-bottom: 20px;
 }
@@ -173,8 +190,10 @@
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .first-container {
-        width: 100%; /* Allow container to take full width on smaller screens */
+        width: 100%;
         padding: 15px;
+        padding-top: 30px;
+        /* Adjust padding-top for smaller screens */
     }
 
     .first-title {
@@ -182,26 +201,29 @@
     }
 
     .first-list {
-        flex-direction: column; /* Stack navigation items vertically on smaller screens */
+        flex-direction: column;
         align-items: center;
-        border-radius: 10px; /* Simpler border-radius for mobile */
+        border-radius: 10px;
         padding: 20px 10px;
-        gap: 15px; /* Adjust gap for stacked items */
+        gap: 15px;
     }
 
     .first-box {
-        width: 80%; /* Wider buttons on smaller screens */
-        max-width: 350px; /* Limit max width */
-        border-radius: 10px; /* Makes buttons less rounded on small screens for a cleaner look */
+        width: 80%;
+        max-width: 350px;
+        border-radius: 10px;
         font-size: medium;
-        height: auto; /* Allows height to adjust to content when stacked */
-        padding: 15px; /* Adjust padding for smaller screens */
+        height: auto;
+        padding: 15px;
     }
 
     .paper-box {
         width: 95%;
         padding: 20px;
-        max-height: calc(100vh - 150px); /* Adjust max-height for mobile screens to leave enough space */
+        margin-top: 30px;
+        /* Adjust margin-top for smaller screens */
+        max-height: calc(100vh - 180px);
+        /* Adjust max-height for mobile screens to leave enough space */
     }
 
     .paper-box h3 {
@@ -220,6 +242,7 @@
 
     .first-container {
         padding: 10px;
+        padding-top: 20px;
     }
 
     .first-list {
@@ -234,6 +257,9 @@
 
     .paper-box {
         padding: 15px;
-        max-height: calc(100vh - 120px); /* Further adjust for very small screens */
+        margin-top: 20px;
+        /* Adjust margin-top for very small screens */
+        max-height: calc(100vh - 150px);
+        /* Further adjust for very small screens */
     }
 }
