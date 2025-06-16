@@ -92,6 +92,7 @@
         flex-direction: column; /* Stack navigation items vertically on smaller screens */
         align-items: center;
         border-radius: 10px;
+        border-radius: 10px;
         padding: 20px 10px;
         gap: 15px; /* Adjust gap for stacked items */
     }

@@ -8,7 +8,8 @@
   width: 100vw;
   height: 100vh;
   position: relative;
-  overflow: visible; /* allow dropdown overflow */
+  overflow: visible;
+  /* allow dropdown overflow */
 }
 
 /* Overlay effect */
@@ -21,7 +22,8 @@
   height: 100%;
   background: rgba(255, 254, 255, 0.879);
   z-index: 1;
-  pointer-events: none; /* let clicks pass through */
+  pointer-events: none;
+  /* let clicks pass through */
 }
 
 /* Main content layer above overlay */
@@ -36,7 +38,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  overflow: visible; /* allow dropdown overflow */
+  overflow: visible;
+  /* allow dropdown overflow */
 }
 
 /* Top bar: logo + navbar + logo */
@@ -47,7 +50,8 @@
   padding: 1rem 2rem;
   width: 100%;
   max-width: 1200px;
-  overflow: visible; /* allow dropdown overflow */
+  overflow: visible;
+  /* allow dropdown overflow */
 }
 
 /* Logo styles */
@@ -67,12 +71,14 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 .top-logo img {
   width: 80%;
   height: 80%;
   object-fit: contain;
   border-radius: 50%;
-  pointer-events: none; /* Let clicks go through the image */
+  pointer-events: none;
+  /* Let clicks go through the image */
   user-select: none;
 }
 
@@ -87,7 +93,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  overflow: visible; /* allow dropdown overflow */
+  overflow: visible;
+  /* allow dropdown overflow */
 }
 
 .section-box {
@@ -122,15 +129,20 @@
 }
 
 /* Rotate arrow when dropdown is open or on hover */
-.expandable.open > .arrow,
-.sections-container .expandable:hover > .arrow {
+.expandable.open>.arrow,
+.sections-container .expandable:hover>.arrow {
   transform: rotate(-135deg);
   transition: transform 0.3s;
 }
 
 /* Research dropdown hidden by default */
 .research-subsections {
-  display: none; /* Hidden unless parent has 'open' or on hover */
+  display: none;
+  /* Primary hiding mechanism */
+  opacity: 0;
+  /* Ensures it's fully transparent when hidden */
+  visibility: hidden;
+  /* Makes it non-interactive when hidden */
   flex-direction: column;
   position: absolute;
   top: 100%;
@@ -139,16 +151,24 @@
   padding: 0.5rem;
   border-radius: 3px;
   margin-top: 0.3rem;
-  z-index: 9999 !important; /* Ensure dropdown is on top */
+  z-index: 9999 !important;
+  /* Ensure dropdown is on top */
   min-width: 150px;
   pointer-events: auto;
+  /* Allow interaction when visible */
   font-weight: lighter;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  /* Smooth transition for hiding/showing */
 }
 
-/* Show dropdown when hovering over .expandable or when open */
-.sections-container .expandable:hover > .research-subsections,
-.expandable.open > .research-subsections {
+/* Show dropdown ONLY when the 'open' class is present on the parent .expandable */
+.expandable.open>.research-subsections {
   display: flex;
+  /* Make it visible */
+  opacity: 1;
+  /* Make it fully opaque */
+  visibility: visible;
+  /* Make it interactive */
 }
 
 .research-subsection {
@@ -187,7 +207,6 @@
   justify-content: center;
   padding: 2rem;
   text-align: center;
-  
 }
 
 .main-logos-container {
