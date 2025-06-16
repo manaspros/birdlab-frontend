@@ -5,8 +5,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Centers content vertically in the available space */
-    height: 100vh; /* Make the container take up the full viewport height */
+    /* MODIFIED: Align content to the start instead of center to reduce top/bottom blank space */
+    justify-content: flex-start;
+    /* MODIFIED: Use min-height so the container can grow if content exceeds viewport height */
+    min-height: 100vh;
+    /* MODIFIED: Add padding to the top to ensure content isn't flush with the top edge */
+    padding-top: 50px; /* Adjust as needed */
+    /* MODIFIED: Add padding to the bottom to ensure content isn't flush with the bottom edge */
+    padding-bottom: 50px; /* Adjust as needed */
     text-align: center;
     color: #d1bac8; /* This color is very light, might need adjustment for readability on some backgrounds */
     font-family: fantasy; /* Be cautious with 'fantasy' as it's not universally supported */
@@ -18,7 +24,8 @@
 
 /* Main Heading Styling for the Page Title */
 .first-title {
-    margin-top: 500px;
+    /* MODIFIED: Significantly reduced margin-top to remove large blank space above it */
+    margin-top: 0px; /* Adjust as needed, e.g., 20px, 40px */
     font-size: 45px;
     font-weight: lighter;
     margin-bottom: 40px;
@@ -68,7 +75,7 @@
     color: rgb(6, 25, 80);
     transition: all 0.3s ease;
     max-width: 1000px; /* Specific width as per your request */
-    min-height: 800px; /* Specific height as per your request */
+    max-height: 800px; /* Specific height as per your request */
     cursor: pointer;
 }
 
@@ -99,10 +106,10 @@
 
     .first-box {
         width: auto; /* Wider buttons on smaller screens */
-        min-width: 800px; /* Limit max width */
+        /* min-width: 800px; -- This was causing extreme width on small screens, consider removing or reducing */
         border-radius: 10px;
         font-size: medium;
-        height: 800px; /* Allow height to adjust to content when stacked */
+        /* height: 800px; -- This fixed height can cause issues; allow content to define height or use min-height */
         padding: 15px; /* Adjust padding for smaller screens */
     }
 }
@@ -134,7 +141,7 @@
 
 /* For sub-headings like "Applications Across Industries" */
 /* If there's a content display box for First.css (like .paper-box in Second.css),
-   the styling for h4 would go there. Assuming a similar structure. */
+    the styling for h4 would go there. Assuming a similar structure. */
 /* If no such box, this rule might not apply directly in First.css. */
 /* Keeping it here for completeness if a .paper-box equivalent is added later. */
 .paper-box h4 {
@@ -146,18 +153,21 @@
     padding: 30px; /* Increased padding for more internal space */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
-    margin-top: 20px;
+    /* MODIFIED: Removed top margin to allow it to sit higher */
+    margin-top: 0px;
+    /* MODIFIED: Added margin-bottom to create space below the box before the end of the container */
+    margin-bottom: 20px; /* Adjust as needed */
     text-align: left; /* Keep text-align left for readability of long content */
-    width: 90%; /* Use percentage for responsiveness */
-    min-width: 1000px; 
-    min-height: 900px;/* Slightly increased max-width for readability */
-    margin-left: auto;
-    margin-right: auto; /* Center the box */
+    min-width: 1000px; /* Use percentage for responsiveness */
+    /* min-width: 1000px; -- This can cause horizontal scroll on smaller screens if not careful with container width */
+    min-height: 1200px; /* Increased min-height for more height */
+    max-height:max-content;
+    margin-left: 0px;
+    margin-right: 0px; /* Center the box */
 
-    /* Scrollable Content  /* Ensure a minimum visible height before scrolling */
-    max-height: calc(100vh - 900px); /* Adjust max-height based on viewport, leaving space for other elements */
-                                     /* 200px is an estimate for header, nav, and footer space. Adjust as needed. */
-    overflow-y: auto; /* Enable vertical scrolling when content overflows */
+    /* Scrollable Content */
+    /* MODIFIED: Set to 'auto' to allow vertical scrolling when content overflows */
+    overflow-y:auto;
     -webkit-overflow-scrolling: touch; /* Improves scrolling performance on iOS */
     
     /* Scrollbar styles (optional, but good for aesthetics) */
@@ -167,7 +177,8 @@
 
 /* Webkit-specific scrollbar styles (for Chrome, Safari, Edge) */
 .paper-box::-webkit-scrollbar {
-    width: 8px;
+    width: 5px;
+    height:max-content;
 }
 
 .paper-box::-webkit-scrollbar-track {
@@ -190,16 +201,6 @@
     text-align: center;
 }
 
-.paper-box h4 {
-    font-family: 'Poppins', sans-serif;
-    color: #a04000;
-    font-size: 1.4em;
-    margin-top: 1.8em;
-    margin-bottom: 0.7em;
-    border-bottom: 1px solid rgba(199, 121, 107, 0.3);
-    padding-bottom: 5px;
-}
-
 /* Paragraphs within the paper-box */
 .paper-box p {
     color: #5e2d2d;
@@ -212,13 +213,13 @@
 .paper-box ul {
     list-style-type: disc;
     margin-left: 30px;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     color: #5e2d2d;
 }
 
 .paper-box ul li {
     margin-bottom: 0.6em;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 .paper-box ul li strong {
