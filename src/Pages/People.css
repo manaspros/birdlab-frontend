@@ -10,13 +10,7 @@
   width: 100vw;
   min-height: 100vh;
   position: relative;
-  /* IMPORTANT: The 'overflow-y: scroll;' property here will cause the purple overlay
-     and background image to cut off if content extends beyond 100vh.
-     If you want the background and overlay to cover the *entire* scrollable content,
-     this line should ideally be removed from .people-background, and the main
-     browser scrollbar should handle the scrolling.
-     I am keeping it as you provided it, but be aware of its effect. */
-  overflow-y: scroll; /* <-- This line from your input will affect background behavior */
+  overflow-y: scroll;
 }
 
 .people-background::before {
@@ -128,8 +122,8 @@
   transition: transform 0.3s;
 }
 
-.expandable.open>.arrow,
-.sections-container .expandable:hover>.arrow {
+.expandable.open > .arrow,
+.sections-container .expandable:hover > .arrow {
   transform: rotate(-135deg);
 }
 
@@ -189,23 +183,22 @@
   background: transparent;
 }
 
-/* Person card styling - MODIFIED */
+/* --- People Card Styling --- */
 .person-card {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 1rem;
-  min-width: 500px; /* Made card wider */
-  max-width: 800px; /* Made card wider */
+  min-width: 500px;
+  max-width: 800px;
   min-height: 400px;
-  max-height: 500px;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   flex: 0 0 auto;
   transition: transform 0.2s ease-in-out;
-  display: flex; /* Make the card a flex container */
-  flex-direction: row; /* Arrange items horizontally (image + text container) */
-  align-items: flex-start; /* Align items to the top of the card */
-  gap: 1rem; /* Space between the image and the text content */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .person-card:hover {
@@ -217,31 +210,28 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Profile photo styling - MODIFIED to fit horizontal layout, respecting "as is" aspect */
 .profile-photo {
-  width: auto; /* Allow image to use its natural width */
-  height: 300px; /* Allow height to adjust to maintain aspect ratio */
-  max-width: 500px; /* Constrain max width of the image within the card */
-  max-height: 600px; /* Constrain max height of the image (makes it roughly square if source allows) */
+  width: auto;
+  height: 300px;
+  max-width: 500px;
+  max-height: 600px;
   border-radius: 8px;
-  object-fit: cover; /* Ensures image covers its area while maintaining aspect ratio */
-  flex-shrink: 0; /* Prevent the image from shrinking */
-  flex-grow: 0; /* Prevent the image from growing */
-  margin-bottom: 0; /* Remove previous bottom margin that pushed text down */
+  object-fit: cover;
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-bottom: 0;
 }
 
-/* NEW: Style for the wrapper div around text content */
 .person-text-container {
   display: flex;
-  flex-direction: column; /* Stack name, role, qual vertically */
-  flex-grow: 1; /* Allows this container to take up remaining horizontal space */
-  text-align: left; /* Ensure text is left-aligned within this container */
-  justify-content: flex-start; /* Align text content to the top */
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+  justify-content: flex-start;
 }
 
-/* Adjust margins for text elements within the card for vertical stacking */
 .person-card h3 {
-  margin: 0; /* Remove default top/bottom margin */
+  margin: 0;
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -250,14 +240,20 @@
   font-style: italic;
   font-size: 0.95rem;
   color: #f5e8ff;
-  margin-top: 0.2rem; /* Small top margin for spacing from h3 */
+  margin-top: 0.2rem;
   margin-bottom: 0;
 }
 
-.person-qual {
+.person-qual,
+.person-extra {
   font-size: 0.9rem;
   color: #fdfdfd;
-  margin-top: 0.5rem; /* Top margin for spacing from role */
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.person-education {
+  margin-top: 0.5rem;
 }
 
 .main-container {
@@ -266,4 +262,72 @@
   box-sizing: border-box;
   position: relative;
   z-index: 2;
+}
+
+/* --- NEW: Social Links and Buttons Styling --- */
+.social-links {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.social-button {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.social-button:hover {
+  transform: translateY(-2px);
+}
+
+.linkedin-button {
+  background-color: #0077b5;
+}
+
+.linkedin-button:hover {
+  background-color: #005582;
+}
+
+.google-scholar-button {
+  background-color: #4285F4;
+}
+
+.google-scholar-button:hover {
+  background-color: #357ae8;
+}
+
+/* --- Responsive Adjustments for Smaller Screens (Optional but Recommended) --- */
+@media (max-width: 768px) {
+  .person-card {
+    flex-direction: column;
+    min-width: unset;
+    max-width: 90%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-photo {
+    height: 200px;
+    max-width: 80%;
+    margin-bottom: 1rem;
+  }
+
+  .person-text-container {
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
 }

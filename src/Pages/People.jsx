@@ -4,7 +4,7 @@ import "./People.css";
 
 import birdLabLogo from "../assets/birdlablogo.png";
 import iitjLogo from "../assets/iitj.png";
-import bhivrajImg from "../assets/Bhivraj.png"; // Dr. Bhivraj Suthar's image
+import bhivrajImg from "../assets/Bhivraj.png";
 import souravImg from "../assets/Sourav.png";
 import nishantImg from "../assets/Nishant.png";
 import ankurImg from "../assets/Ankur.png";
@@ -15,12 +15,10 @@ import mahipalImg from "../assets/Mahipal.png";
 import vishalImg from "../assets/Vishal.png";
 import arpitImg from "../assets/Arpit.png";
 
-
 const People = () => {
   const navigate = useNavigate();
   const [researchOpen, setResearchOpen] = useState(false);
 
-  // Team data from CSV
   const teamMembers = [
     {
       id: 1,
@@ -34,7 +32,9 @@ const People = () => {
         mtech: "M.Tech. - IIT Delhi (2012-2015)",
         btech: "B.E. - CTAE, Udaipur (2006-2010)"
       },
-      isHighlight: true
+      isHighlight: true,
+      linkedin: "https://www.linkedin.com/in/bhivraj-s-823528294/",
+      googleScholar: "https://scholar.google.co.in/citations?user=3KZSSEIAAAAJ&hl=en"
     },
     {
       id: 2,
@@ -48,7 +48,8 @@ const People = () => {
         mtech: "MSc - University of Mysore (2009-2012)",
         btech: "BSc - University of Calcutta (2005-2009)"
       },
-      isHighlight: true
+      isHighlight: true,
+      googleScholar: "https://scholar.google.com/citations?user=l9TwYx4AAAAJ&hl=en&oi=ao"
     },
     {
       id: 3,
@@ -60,7 +61,7 @@ const People = () => {
       education: {
         mtech: "M.Tech (Robotics) - IIT Jodhpur (2023-2025)",
         btech: "B.Tech (Mechanical) - Zakir Hussain College of Engineering and Technology, AMU (2019-2023)"
-      }
+      },
     },
     {
       id: 4,
@@ -72,7 +73,8 @@ const People = () => {
       education: {
         mtech: "M.Tech (AR & VR) - IIT Jodhpur (2024-2026)",
         btech: "B.Tech (CSE) - Hindu College of Engineering, Sonipat (2019-2023)"
-      }
+      },
+      
     },
     {
       id: 5,
@@ -84,7 +86,8 @@ const People = () => {
       education: {
         mtech: "M.Tech (Robotics) - IIT Jodhpur (2023-2025)",
         btech: "B.E (Mechanical) - Swami Vivekanand Institute of Technology, Sagar (2012-2016)"
-      }
+      },
+      linkedin: "https://www.linkedin.com/in/parag-chourasia-204a26201/"
     },
     {
       id: 6,
@@ -96,7 +99,8 @@ const People = () => {
       education: {
         mtech: "M.Tech (Robotics and Mobility Systems) - IIT Jodhpur (2024-2026)",
         btech: "B.Tech (Mechanical) - National Institute of Technology, Agartala (2018-2022)"
-      }
+      },
+      linkedin: "https://www.linkedin.com/in/priyabrata-saha-07/"
     },
     {
       id: 7,
@@ -108,7 +112,8 @@ const People = () => {
       education: {
         mtech: "M.Tech (AR & VR) - IIT Jodhpur (2024-2026)",
         btech: "B.Tech (IT) - MIT Muzaffarpur, Bihar (2019-2023)"
-      }
+      },
+    
     },
     {
       id: 8,
@@ -120,7 +125,7 @@ const People = () => {
       education: {
         mtech: "M.Tech (AR & VR) - IIT Jodhpur (2024-2026)",
         btech: "B.Tech (C.S.E.) - Rajasthan Technical University, Kota (2019-2023)"
-      }
+      },
     },
     {
       id: 9,
@@ -132,7 +137,8 @@ const People = () => {
       education: {
         mtech: "M.Tech (Robotics and Mobility Systems) - IIT Jodhpur (2024-2026)",
         btech: "B.Tech (C.S.E.) - SSIPMT, Raipur (2019-2023)"
-      }
+      },
+      linkedin: "https://www.linkedin.com/in/vrathi6789/"
     },
     {
       id: 10,
@@ -144,7 +150,8 @@ const People = () => {
       education: {
         mtech: "M.Tech (AR & VR) - IIT Jodhpur (2024-2026)",
         btech: "B.Tech (C.S.E) - Rajiv Gandhi Institute of Petroleum Technology, Jais, UP (2020-2024)"
-      }
+      },
+      linkedin: "https://www.linkedin.com/in/arpit-kumar-696768209/"
     }
   ];
 
@@ -160,7 +167,6 @@ const People = () => {
           <div className="sections-container">
             <div className="section-box" onClick={() => navigate("/")}>Welcome</div>
             <div className="section-box active" onClick={() => navigate("/people")}>People</div>
-
             <div
               className={`section-box expandable ${researchOpen ? "open" : ""}`}
               onClick={() => setResearchOpen(!researchOpen)}
@@ -178,7 +184,6 @@ const People = () => {
                 </div>
               )}
             </div>
-
             <div className="section-box" onClick={() => navigate("/publications")}>Publications</div>
             <div className="section-box" onClick={() => navigate("/lectures")}>Lectures</div>
             <div className="section-box" onClick={() => navigate("/positions")}>Open Positions</div>
@@ -193,11 +198,10 @@ const People = () => {
         {/* Title and People Grid */}
         <div className="main-container">
           <h1 className="main-title">Meet Our Team</h1>
-
           <div className="people-grid scrollable-grid">
             {teamMembers.map((member) => (
-              <div 
-                key={member.id} 
+              <div
+                key={member.id}
                 className={`person-card ${member.isHighlight ? 'highlight-card' : ''}`}
               >
                 {member.photo && (
@@ -209,18 +213,32 @@ const People = () => {
                   <p className="person-qual">
                     <strong>Research:</strong> {member.researchInterests}
                   </p>
-                  <p className="person-extra">
-                    <strong>Email:</strong> {member.email}
-                  </p>
+                  <p className="person-extra"><strong>Email:</strong> {member.email}</p>
                   <div className="person-education">
-                    {member.education.phd && (
-                      <p className="person-extra">{member.education.phd}</p>
+                    {member.education.phd && <p className="person-extra">{member.education.phd}</p>}
+                    {member.education.mtech && <p className="person-extra">{member.education.mtech}</p>}
+                    {member.education.btech && <p className="person-extra">{member.education.btech}</p>}
+                  </div>
+                  <div className="social-links">
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="social-button linkedin-button"
+                      >
+                        LinkedIn
+                      </a>
                     )}
-                    {member.education.mtech && (
-                      <p className="person-extra">{member.education.mtech}</p>
-                    )}
-                    {member.education.btech && (
-                      <p className="person-extra">{member.education.btech}</p>
+                    {member.googleScholar && (
+                      <a
+                        href={member.googleScholar}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="social-button google-scholar-button"
+                      >
+                        Google Scholar
+                      </a>
                     )}
                   </div>
                 </div>
