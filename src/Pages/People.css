@@ -10,7 +10,13 @@
   width: 100vw;
   min-height: 100vh;
   position: relative;
-  overflow-y: scroll;
+  /* IMPORTANT: The 'overflow-y: scroll;' property here will cause the purple overlay
+     and background image to cut off if content extends beyond 100vh.
+     If you want the background and overlay to cover the *entire* scrollable content,
+     this line should ideally be removed from .people-background, and the main
+     browser scrollbar should handle the scrolling.
+     I am keeping it as you provided it, but be aware of its effect. */
+  overflow-y: scroll; /* <-- This line from your input will affect background behavior */
 }
 
 .people-background::before {
@@ -68,7 +74,6 @@
   justify-content: center;
   padding: 2rem;
   text-align: center;
-
 }
 
 .main-logos-container {
@@ -84,7 +89,6 @@
   border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.944);
 }
-
 
 /* Navigation */
 .sections-container {
@@ -185,17 +189,23 @@
   background: transparent;
 }
 
-/* Person card styling */
+/* Person card styling - MODIFIED */
 .person-card {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 1rem;
-  min-width: 250px;
-  max-width: 300px;
+  min-width: 500px; /* Made card wider */
+  max-width: 800px; /* Made card wider */
+  min-height: 400px;
+  max-height: 500px;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   flex: 0 0 auto;
   transition: transform 0.2s ease-in-out;
+  display: flex; /* Make the card a flex container */
+  flex-direction: row; /* Arrange items horizontally (image + text container) */
+  align-items: flex-start; /* Align items to the top of the card */
+  gap: 1rem; /* Space between the image and the text content */
 }
 
 .person-card:hover {
@@ -207,14 +217,31 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Profile photo styling - MODIFIED to fit horizontal layout, respecting "as is" aspect */
 .profile-photo {
-  width: 100%;
+  width: auto; /* Allow image to use its natural width */
+  height: 300px; /* Allow height to adjust to maintain aspect ratio */
+  max-width: 500px; /* Constrain max width of the image within the card */
+  max-height: 600px; /* Constrain max height of the image (makes it roughly square if source allows) */
   border-radius: 8px;
-  margin-bottom: 0.5rem;
+  object-fit: cover; /* Ensures image covers its area while maintaining aspect ratio */
+  flex-shrink: 0; /* Prevent the image from shrinking */
+  flex-grow: 0; /* Prevent the image from growing */
+  margin-bottom: 0; /* Remove previous bottom margin that pushed text down */
 }
 
+/* NEW: Style for the wrapper div around text content */
+.person-text-container {
+  display: flex;
+  flex-direction: column; /* Stack name, role, qual vertically */
+  flex-grow: 1; /* Allows this container to take up remaining horizontal space */
+  text-align: left; /* Ensure text is left-aligned within this container */
+  justify-content: flex-start; /* Align text content to the top */
+}
+
+/* Adjust margins for text elements within the card for vertical stacking */
 .person-card h3 {
-  margin: 0.5rem 0 0.2rem;
+  margin: 0; /* Remove default top/bottom margin */
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -223,12 +250,14 @@
   font-style: italic;
   font-size: 0.95rem;
   color: #f5e8ff;
+  margin-top: 0.2rem; /* Small top margin for spacing from h3 */
+  margin-bottom: 0;
 }
 
 .person-qual {
   font-size: 0.9rem;
   color: #fdfdfd;
-  margin-top: 0.5rem;
+  margin-top: 0.5rem; /* Top margin for spacing from role */
 }
 
 .main-container {
