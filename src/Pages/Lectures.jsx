@@ -1,37 +1,13 @@
 
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import "./Lectures.css";
 
 const Lectures = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="lectures-background">
       <div className="lectures-content">
-        <div className="top-bar-container">
-          <div className="top-logo birdlab-logo" onClick={() => navigate("/")}>BirdLab</div>
-          <div className="sections-container">
-            <div className="section-box" onClick={() => navigate("/")}>Welcome</div>
-            <div className="section-box" onClick={() => navigate("/people")}>People</div>
-            <div className="section-box expandable">
-              Research
-              <span className="arrow down"></span>
-              <div className="research-subsections">
-                <div className="research-subsection" onClick={() => navigate("/first")}>Bio-inspired Mechanisms</div>
-                <div className="research-subsection" onClick={() => navigate("/second")}>Wearable and Collaborative Robotics</div>
-                <div className="research-subsection" onClick={() => navigate("/third")}>Reconfigurable and Growing Robotics</div>
-                <div className="research-subsection" onClick={() => navigate("/fourth")}>Tele-Robotics and Haptics</div>
-                <div className="research-subsection" onClick={() => navigate("/fifth")}>Applied AI in Robotics</div>
-              </div>
-            </div>
-            <div className="section-box" onClick={() => navigate("/publications")}>Publications</div>
-            <div className="section-box active" onClick={() => navigate("/lectures")}>Lectures</div>
-            <div className="section-box" onClick={() => navigate("/positions")}>Open Positions</div>
-            <div className="section-box" onClick={() => navigate("/contact")}>Contact</div>
-          </div>
-          <div className="top-logo iitj-logo" onClick={() => navigate("/")}>IITJ</div>
-        </div>
+        <Navbar />
         
         <div className="main-container">
           <h1 className="main-title">Lectures & Talks</h1>

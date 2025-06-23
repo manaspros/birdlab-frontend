@@ -1,32 +1,36 @@
+@import url('../../styles/variables.css');
+
 .fifth-background {
-  background-image: url("../../assets/blbg.png");
-  /* Path to the background image */
-  background-size: cover;
-  /* Cover the whole page */
-  background-position: center;
-  /* Center the image */
-  background-repeat: no-repeat;
-  /* Do not repeat */
-  width: 100vw;
-  /* Full viewport width */
-  height: 100vh;
-  /* Full viewport height */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: var(--gradient-hero);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.fifth-background::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/blbg.png") center/cover;
+  opacity: 0.05;
+  z-index: 0;
 }
 
 .fifth-content {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
-  color: rgb(19, 17, 17);
-  margin-left: 250px;
-  width: calc(100% - 250px);
-  text-decoration-color: black;
+  color: white;
+  font-family: var(--font-primary);
+  padding: var(--space-xl);
+  width: 100%;
 }
 
 .first-container {
@@ -34,88 +38,161 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
-  color: #d1bac8;
-  font-family: fantasy;
+  color: white;
+  font-family: var(--font-primary);
   font-size: 15px;
-  width: 750px;
-  height: 120px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl);
 }
 
 .first-title {
-  font-size: 45px;
-  font-weight: lighter;
-  margin-bottom: 20px;
-  color: rgb(209, 186, 200);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: var(--space-xl);
+  background: linear-gradient(135deg, #ffffff, var(--primary-200), #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .title-box {
-  background-color: rgba(240, 214, 209, 0.87);
-  padding: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
-  margin-bottom: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  padding: var(--space-lg) var(--space-xl);
+  margin-bottom: var(--space-xl);
   width: fit-content;
 }
 
 .first-list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-lg);
   width: 100%;
-  height: max-content;
-  max-width: 1500px;
-  padding: 30px 15px;
-  background-color: rgba(84, 132, 171, 0.748);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px 100px 100px 100px;
+  max-width: 1000px;
+  padding: var(--space-xl);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  margin-bottom: var(--space-xl);
 }
 
 .first-box {
-  border-radius: 0px 50px 50px 50px;
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px 15px;
-  font-size: medium;
-  font-weight: 250;
-  background-color: rgba(160, 192, 211, 0.604);
-  /* Ensures correct transparency */
-  box-shadow: 0 4px 6px rgba(105, 16, 99, 0.6);
+  padding: var(--space-lg);
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--gradient-card);
+  backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-md);
   text-decoration: none;
-  color: rgb(6, 25, 80);
-  transition: all 0.3s ease;
-  width: 100px;
-  height: 60px;
+  color: white;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-height: 80px;
+}
+
+.first-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--transition-slow);
+}
+
+.first-box:hover::before {
+  left: 100%;
 }
 
 .first-box:hover {
-  background-color: rgba(85, 36, 36, 0.1);
-  cursor: pointer;
+  background: var(--gradient-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .paper-box {
-  background-color: rgba(240, 214, 209, 0.87);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(199, 121, 107, 0.2);
-  margin-top: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  padding: var(--space-2xl);
+  margin-top: var(--space-xl);
   text-align: left;
-  width: fit-content;
+  width: 90%;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  min-height: 400px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.paper-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-card);
+  opacity: 0.5;
+  border-radius: var(--radius-xl);
+  z-index: -1;
+}
+
+.paper-box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .paper-box h3 {
-  font-family: 'Poppins', sans-serif;
-  color: #851e3e;
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
+  font-family: var(--font-display);
+  color: white;
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-bottom: 1em;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, var(--primary-200));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .paper-box p {
-  color: #5e2d2d;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  margin-bottom: 1.2em;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 400;
 }

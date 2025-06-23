@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "../../components/Navbar";
 import "./Second.css";
 
 const Second = () => {
@@ -134,11 +135,15 @@ const Second = () => {
         );
     }
   };
-
   return (
-    <div className="second-container">
-      <h1 className="second-title">Wearable and Collaborative Robotics</h1>
-      {renderTopicContent()}
+    <div className="second-background">
+      <div className="second-content">
+        <Navbar />
+        <div className="second-container">
+          <h1 className="second-title">Wearable and Collaborative Robotics</h1>
+          {renderTopicContent()}
+        </div>
+      </div>
     </div>
   );
 };

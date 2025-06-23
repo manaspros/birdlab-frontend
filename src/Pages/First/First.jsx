@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from '../../components/Navbar';
 import "./First.css"; // Import CSS
 import bioinspiresTSAImage from '../../assets/BioinspiresTSA.png';
 import roboticFingerImage from '../../assets/first2.png';
@@ -221,11 +222,57 @@ const First = () => {
         );
     }
   };
-
   return (
-    <div className="first-container">
-      <h1 className="first-title">Bio-inspired Mechanisms</h1>
-      {renderTopicContent()}
+    <div className="app-background">
+      <div className="app-content">
+        <Navbar />
+        <div className="first-container">
+          <h1 className="first-title">Bio-inspired Mechanisms</h1>
+          {!selectedTopic && (
+            <div className="first-list">
+              <button 
+                onClick={() => setSelectedTopic('firs1')}
+                className="first-box"
+              >
+                Bio-inspired TSA
+              </button>
+              <button 
+                onClick={() => setSelectedTopic('firs2')}
+                className="first-box"
+              >
+                Robotic Finger
+              </button>
+              <button 
+                onClick={() => setSelectedTopic('firs3')}
+                className="first-box"
+              >
+                Robotic Hand
+              </button>
+              <button 
+                onClick={() => setSelectedTopic('firs4')}
+                className="first-box"
+              >
+                Bird Wing Analysis
+              </button>
+              <button 
+                onClick={() => setSelectedTopic('firs5')}
+                className="first-box"
+              >
+                Cat-Leap Mechanism
+              </button>
+            </div>
+          )}
+          {renderTopicContent()}
+          {selectedTopic && (
+            <button 
+              onClick={() => setSelectedTopic(null)}
+              className="back-button"
+            >
+              Back to Topics
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

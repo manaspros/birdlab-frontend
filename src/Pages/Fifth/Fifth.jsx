@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Still imported, but not used for navigation in this version
-import "./Fifth.css"; // Assuming you have some basic styling here
+import { Link } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import "./Fifth.css";
 
 const Fifth = () => {
   const [selectedTopic, setSelectedTopic] = useState(null);
@@ -151,12 +152,16 @@ const Fifth = () => {
         );
     }
   };
-
   return (
-    <div className="first-container">
-      {/* The main title remains at the top */}
-      <h1 className="first-title">Applied AI in Robotics</h1>
-      {renderTopicContent()}
+    <div className="fifth-background">
+      <div className="fifth-content">
+        <Navbar />
+        <div className="first-container">
+          {/* The main title remains at the top */}
+          <h1 className="first-title">Applied AI in Robotics</h1>
+          {renderTopicContent()}
+        </div>
+      </div>
     </div>
   );
 };

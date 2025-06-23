@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Link is imported but not used in the provided snippet. If navigation is intended, it should be used.
+import { Link } from "react-router-dom";
+import Navbar from "../../components/Navbar";
 import "./Fourth.css";
 
 const Fourth = () => {
@@ -86,11 +87,15 @@ const Fourth = () => {
         );
     }
   };
-
   return (
-    <div className="first-container">
-      <h1 className="first-title">Tele-Robotics and Haptics</h1>
-      {renderTopicContent()}
+    <div className="fourth-background">
+      <div className="fourth-content">
+        <Navbar />
+        <div className="first-container">
+          <h1 className="first-title">Tele-Robotics and Haptics</h1>
+          {renderTopicContent()}
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import "./People.css";
 
 import birdLabLogo from "../assets/birdlablogo.png";
@@ -18,6 +20,19 @@ import arpitImg from "../assets/Arpit.png";
 const People = () => {
   const navigate = useNavigate();
   const [researchOpen, setResearchOpen] = useState(false);
+
+  // Add animation delays to cards and buttons
+  useEffect(() => {
+    const cards = document.querySelectorAll('.person-card');
+    cards.forEach((card, index) => {
+      card.style.setProperty('--card-index', index);
+    });
+
+    const buttons = document.querySelectorAll('.social-button');
+    buttons.forEach((button, index) => {
+      button.style.setProperty('--button-index', index);
+    });
+  }, []);
 
   const teamMembers = [
     {
@@ -154,55 +169,20 @@ const People = () => {
       linkedin: "https://www.linkedin.com/in/arpit-kumar-696768209/"
     }
   ];
-
   return (
     <div className="people-background">
       <div className="people-content">
-        {/* Navigation Bar */}
-        <div className="top-bar-container">
-          <div className="top-logo birdlab-logo" onClick={() => navigate("/")}>
-            <img src={birdLabLogo} alt="BirdLab" />
-          </div>
-
-          <div className="sections-container">
-            <div className="section-box" onClick={() => navigate("/")}>Welcome</div>
-            <div className="section-box active" onClick={() => navigate("/people")}>People</div>
-            <div
-              className={`section-box expandable ${researchOpen ? "open" : ""}`}
-              onClick={() => setResearchOpen(!researchOpen)}
-              style={{ userSelect: "none" }}
-            >
-              Research
-              <span className="arrow down"></span>
-              {researchOpen && (
-                <div className="research-subsections">
-                  <div className="research-subsection" onClick={() => navigate("/first")}>Bio-inspired Mechanisms</div>
-                  <div className="research-subsection" onClick={() => navigate("/second")}>Wearable and Collaborative Robotics</div>
-                  <div className="research-subsection" onClick={() => navigate("/third")}>Reconfigurable and Growing Robotics</div>
-                  <div className="research-subsection" onClick={() => navigate("/fourth")}>Tele-Robotics and Haptics</div>
-                  <div className="research-subsection" onClick={() => navigate("/fifth")}>Applied AI in Robotics</div>
-                </div>
-              )}
-            </div>
-            <div className="section-box" onClick={() => navigate("/publications")}>Publications</div>
-            <div className="section-box" onClick={() => navigate("/lectures")}>Lectures</div>
-            <div className="section-box" onClick={() => navigate("/positions")}>Open Positions</div>
-            <div className="section-box" onClick={() => navigate("/contact")}>Contact</div>
-          </div>
-
-          <div className="top-logo iitj-logo" onClick={() => navigate("/")}>
-            <img src={iitjLogo} alt="IIT Jodhpur" />
-          </div>
-        </div>
+        <Navbar />
 
         {/* Title and People Grid */}
         <div className="main-container">
           <h1 className="main-title">Meet Our Team</h1>
           <div className="people-grid scrollable-grid">
-            {teamMembers.map((member) => (
+            {teamMembers.map((member, index) => (
               <div
                 key={member.id}
                 className={`person-card ${member.isHighlight ? 'highlight-card' : ''}`}
+                style={{ '--card-index': index }}
               >
                 {member.photo && (
                   <img src={member.photo} alt={member.name} className="profile-photo" />
@@ -226,6 +206,7 @@ const People = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="social-button linkedin-button"
+                        style={{ '--button-index': 0 }}
                       >
                         LinkedIn
                       </a>
@@ -236,6 +217,7 @@ const People = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="social-button google-scholar-button"
+                        style={{ '--button-index': 1 }}
                       >
                         Google Scholar
                       </a>

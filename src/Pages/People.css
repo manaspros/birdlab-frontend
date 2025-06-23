@@ -1,39 +1,50 @@
 @import url('../Main.css');
+@import url('../styles/variables.css');
 
 /* Background setup */
 .people-background {
-  background-image: url("../assets/blbg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat;
-  background-color: rgb(218, 143, 220);
-  width: 100vw;
+  background: var(--gradient-hero);
   min-height: 100vh;
   position: relative;
-  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .people-background::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(142, 60, 151, 0.3);
-  z-index: 1;
-  pointer-events: none;
+  background: url("../assets/blbg.png") center/cover;
+  opacity: 0.05;
+  z-index: 0;
 }
 
 .people-content {
   position: relative;
   z-index: 2;
   width: 100%;
-  font-family: fantasy;
-  color: rgba(255, 255, 255, 0.979);
+  font-family: var(--font-primary);
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+/* Enhanced main title */
+.main-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.8), #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin: var(--space-xl) 0;
+  letter-spacing: -0.02em;
 }
 
 /* Top bar */
@@ -151,183 +162,216 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Main title */
-.main-title {
-  font-size: 2.5rem;
-  margin: 1rem 0;
-  text-align: center;
-  color: #fff;
-}
-
-/* Scrollable cards */
-.people-grid {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 1rem;
-  scroll-behavior: smooth;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.people-grid::-webkit-scrollbar {
-  height: 10px;
-}
-
-.people-grid::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 10px;
-}
-
-.people-grid::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 /* --- People Card Styling --- */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: var(--space-xl);
+  width: 100%;
+  max-width: 1400px;
+  padding: var(--space-xl);
+}
+
+/* Enhanced person card with glass morphism */
 .person-card {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1rem;
-  min-width: 500px;
-  max-width: 800px;
-  min-height: 400px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-backdrop);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glass);
+  padding: var(--space-xl);
   color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  flex: 0 0 auto;
-  transition: transform 0.2s ease-in-out;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 1rem;
+  transition: all var(--transition-normal);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+  position: relative;
+  overflow: hidden;
+}
+
+.person-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-card);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.person-card:hover::before {
+  opacity: 1;
 }
 
 .person-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .highlight-card {
-  background-color: rgba(255, 255, 255, 0.18);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(217, 70, 239, 0.1));
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Modern profile photo styling */
 .profile-photo {
-  width: auto;
-  height: 300px;
-  max-width: 500px;
-  max-height: 600px;
-  border-radius: 8px;
+  width: 200px;
+  height: 250px;
+  border-radius: var(--radius-xl);
   object-fit: cover;
-  flex-shrink: 0;
-  flex-grow: 0;
-  margin-bottom: 0;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  position: relative;
+  z-index: 1;
 }
 
+.person-card:hover .profile-photo {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Enhanced text container */
 .person-text-container {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  text-align: left;
-  justify-content: flex-start;
+  gap: var(--space-sm);
+  position: relative;
+  z-index: 1;
 }
 
 .person-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
   margin: 0;
-  font-size: 1.2rem;
-  font-weight: bold;
+  line-height: 1.3;
+  color: white;
 }
 
 .person-role {
+  font-family: var(--font-secondary);
   font-style: italic;
-  font-size: 0.95rem;
-  color: #f5e8ff;
-  margin-top: 0.2rem;
-  margin-bottom: 0;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-weight: 500;
 }
 
 .person-qual,
-.person-extra {
-  font-size: 0.9rem;
-  color: #fdfdfd;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
-
+.person-extra,
 .person-education {
-  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0;
 }
 
-.main-container {
-  width: 100%;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 2;
-}
-
-/* --- NEW: Social Links and Buttons Styling --- */
+/* Enhanced social links */
 .social-links {
-  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-start;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
 }
 
 .social-button {
-  display: inline-block;
-  padding: 8px 15px;
-  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
   text-decoration: none;
   color: white;
-  font-weight: bold;
-  font-family: sans-serif;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
 }
 
-.social-button:hover {
-  transform: translateY(-2px);
+.social-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--transition-slow);
+}
+
+.social-button:hover::before {
+  left: 100%;
 }
 
 .linkedin-button {
-  background-color: #0077b5;
+  background: linear-gradient(135deg, rgba(0, 119, 181, 0.6), rgba(0, 65, 130, 0.6));
 }
 
 .linkedin-button:hover {
-  background-color: #005582;
+  background: linear-gradient(135deg, rgba(0, 136, 204, 0.7), rgba(0, 119, 181, 0.7));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .google-scholar-button {
-  background-color: #4285F4;
+  background: linear-gradient(135deg, rgba(66, 133, 244, 0.6), rgba(26, 115, 232, 0.6));
 }
 
 .google-scholar-button:hover {
-  background-color: #357ae8;
+  background: linear-gradient(135deg, rgba(82, 148, 255, 0.7), rgba(66, 133, 244, 0.7));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
-/* --- Responsive Adjustments for Smaller Screens (Optional but Recommended) --- */
+/* Responsive improvements */
+@media (max-width: 1024px) {
+  .people-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .person-card {
-    flex-direction: column;
-    min-width: unset;
-    max-width: 90%;
-    align-items: center;
+    grid-template-columns: 1fr;
     text-align: center;
+    gap: var(--space-md);
   }
 
   .profile-photo {
-    height: 200px;
-    max-width: 80%;
-    margin-bottom: 1rem;
+    width: 150px;
+    height: 180px;
+    justify-self: center;
   }
 
   .person-text-container {
     align-items: center;
-    text-align: center;
   }
 
   .social-links {
     justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .people-grid {
+    padding: var(--space-md);
+    gap: var(--space-lg);
+  }
+  
+  .person-card {
+    padding: var(--space-lg);
+  }
+  
+  .profile-photo {
+    width: 120px;
+    height: 150px;
   }
 }

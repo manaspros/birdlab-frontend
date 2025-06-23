@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import Main from "./Main";
 
-// Import main sections, which now internally manage their subsections
+// Import main sections
 import First from "./Pages/First/First";
 import Second from "./Pages/Second/Second";
 import Third from "./Pages/Third/Third";
@@ -16,57 +17,267 @@ import Lectures from "./Pages/Lectures";
 import Positions from "./Pages/Positions";
 import Contact from "./Pages/Contact";
 
-// REMOVED: All individual subsection imports (FirS1, ThiS1, FouS1, etc.)
-// because their content is now integrated directly into their parent components (First, Third, Fourth).
+import "./App.css";
 
-import "./App.css"; // Import global styles
+// Page transition variants
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    y: 50,
+    scale: 0.98
+  },
+  in: {
+    opacity: 1,
+    y: 0,
+    scale: 1
+  },
+  out: {
+    opacity: 0,
+    y: -50,
+    scale: 1.02
+  }
+};
+
+const pageTransition = {
+  type: "tween",
+  ease: "anticipate",
+  duration: 0.6
+};
+
+// Floating particles animation
+const particlesVariants = {
+  animate: {
+    y: [0, -20, 0],
+    x: [0, 10, -10, 0],
+    rotate: [0, 180, 360],
+    transition: {
+      duration: 8,
+      repeat: Infinity,
+      ease: "linear"
+    }
+  }
+};
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route 
+          path="/" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Main />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/first" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <First />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/second" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Second />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/third" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Third />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/fourth" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Fourth />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/fifth" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Fifth />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/people" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <People />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/publications" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Publications />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/lectures" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Lectures />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/positions" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Positions />
+            </motion.div>
+          } 
+        />
+        <Route 
+          path="/contact" 
+          element={
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={pageVariants}
+              transition={pageTransition}
+            >
+              <Contact />
+            </motion.div>
+          } 
+        />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 function App() {
   return (
     <div className="app-background">
+      {/* Animated floating particles */}
+      <motion.div
+        variants={particlesVariants}
+        animate="animate"
+        style={{
+          position: 'absolute',
+          top: '10%',
+          left: '5%',
+          width: '10px',
+          height: '10px',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%)',
+          borderRadius: '50%',
+          zIndex: 1,
+          pointerEvents: 'none'
+        }}
+      />
+      <motion.div
+        variants={particlesVariants}
+        animate="animate"
+        style={{
+          position: 'absolute',
+          top: '60%',
+          right: '10%',
+          width: '8px',
+          height: '8px',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%)',
+          borderRadius: '50%',
+          zIndex: 1,
+          pointerEvents: 'none',
+          animationDelay: '2s'
+        }}
+      />
+      <motion.div
+        variants={particlesVariants}
+        animate="animate"
+        style={{
+          position: 'absolute',
+          top: '30%',
+          right: '20%',
+          width: '12px',
+          height: '12px',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%)',
+          borderRadius: '50%',
+          zIndex: 1,
+          pointerEvents: 'none',
+          animationDelay: '4s'
+        }}
+      />
+
       <div className="app-content">
         <Router>
-          <Routes>
-            <Route path="/" element={<Main />} />
-
-            {/*
-              First Section: Now handles its subsections internally using state.
-              The individual sub-routes (firs1, firs2, etc.) are no longer needed here,
-              as First.jsx itself manages which content to display based on internal state.
-              You only need the main route to the 'First' component.
-            */}
-            <Route path="/first" element={<First />} />
-
-            {/*
-              Second Section: Handles its subsections internally.
-              Only the main route to the 'Second' component is needed.
-            */}
-            <Route path="/second" element={<Second />} />
-
-            {/*
-              Third Section: Now handles its subsections internally using state.
-              The individual sub-routes (this1, this2, etc.) are no longer needed here.
-              Only the main route to the 'Third' component is needed.
-            */}
-            <Route path="/third" element={<Third />} />
-
-            {/*
-              Fourth Section: Now handles its subsections internally using state.
-              The individual sub-routes (fous1, fous2, etc.) are no longer needed here.
-              Only the main route to the 'Fourth' component is needed.
-            */}
-            <Route path="/fourth" element={<Fourth />} />
-
-            {/* Fifth Section (already had no external subsections) */}
-            <Route path="/fifth" element={<Fifth />} />
-
-            {/* Other Pages */}
-            <Route path="/people" element={<People />} />
-            <Route path="/publications" element={<Publications />} />
-            <Route path="/lectures" element={<Lectures />} />
-            <Route path="/positions" element={<Positions />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
+          <AnimatedRoutes />
         </Router>
       </div>
     </div>
