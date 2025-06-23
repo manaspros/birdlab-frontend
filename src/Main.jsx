@@ -23,8 +23,9 @@ const titleVariants = {
 
 const Main = () => {
   return (
-    <div className="app-background">
-      <div className="app-content">
+    <div className="main-background">
+      <div className="main-background::before"></div>
+      <div className="main-content">
         <Navbar />
         
         <div className="main-container">

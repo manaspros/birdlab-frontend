@@ -170,7 +170,6 @@ const People = () => {
     }
   ];
   return (
-    <div className="people-background">
       <div className="people-content">
         <Navbar />
 
@@ -229,7 +228,6 @@ const People = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

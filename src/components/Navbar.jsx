@@ -10,6 +10,17 @@ const Navbar = () => {
   const [researchOpen, setResearchOpen] = useState(false);
   const navigate = useNavigate();
 
+  // Close dropdown when clicking outside or navigating
+  const handleDropdownItemClick = (path) => {
+    navigate(path);
+    setResearchOpen(false);
+    setMenuOpen(false);
+  };
+
+  const toggleResearchDropdown = () => {
+    setResearchOpen(!researchOpen);
+  };
+
   // Animation variants
   const navVariants = {
     hidden: { y: -100, opacity: 0 },
@@ -125,21 +136,24 @@ const Navbar = () => {
         <motion.li 
           className="dropdown-container"
           variants={itemVariants}
-          onMouseEnter={() => setResearchOpen(true)}
-          onMouseLeave={() => setResearchOpen(false)}
+          onMouseEnter={() => window.innerWidth > 768 && setResearchOpen(true)}
+          onMouseLeave={() => window.innerWidth > 768 && setResearchOpen(false)}
         >
           <motion.div 
             className="nav-link dropdown-trigger"
+            onClick={toggleResearchDropdown}
             whileHover={{ scale: 1.05, y: -2 }}
           >
             Research
             <motion.span
-              className="arrow"
+              className="dropdown-arrow"
               animate={{
-                rotate: researchOpen ? -135 : 45
+                rotate: researchOpen ? 180 : 0
               }}
               transition={{ duration: 0.3 }}
-            />
+            >
+              ▼
+            </motion.span>
           </motion.div>
           
           <AnimatePresence>
@@ -153,35 +167,35 @@ const Navbar = () => {
               >
                 <motion.div 
                   className="dropdown-item"
-                  onClick={() => navigate("/first")}
+                  onClick={() => handleDropdownItemClick("/first")}
                   whileHover={{ x: 10, scale: 1.05 }}
                 >
                   Bio-inspired Mechanisms
                 </motion.div>
                 <motion.div 
                   className="dropdown-item"
-                  onClick={() => navigate("/second")}
+                  onClick={() => handleDropdownItemClick("/second")}
                   whileHover={{ x: 10, scale: 1.05 }}
                 >
                   Wearable and Collaborative Robotics
                 </motion.div>
                 <motion.div 
                   className="dropdown-item"
-                  onClick={() => navigate("/third")}
+                  onClick={() => handleDropdownItemClick("/third")}
                   whileHover={{ x: 10, scale: 1.05 }}
                 >
                   Reconfigurable and Growing Robotics
                 </motion.div>
                 <motion.div 
                   className="dropdown-item"
-                  onClick={() => navigate("/fourth")}
+                  onClick={() => handleDropdownItemClick("/fourth")}
                   whileHover={{ x: 10, scale: 1.05 }}
                 >
                   Tele-Robotics and Haptics
                 </motion.div>
                 <motion.div 
                   className="dropdown-item"
-                  onClick={() => navigate("/fifth")}
+                  onClick={() => handleDropdownItemClick("/fifth")}
                   whileHover={{ x: 10, scale: 1.05 }}
                 >
                   Applied AI in Robotics
